@@ -52,12 +52,15 @@
 		oPayment.SendExtend.ExpireDate = 30;
 		oPayment.SendExtend.ClientRedirectURL = ServerIP + "/checkOutFeedback_ATM.jsp";
 		
-		/* CVS or BARCODE */
+		/* BARCODE or CVS */
+		oPayment.SendExtend.StoreExpireDate = 15; // 天(BARCODE) or 分鐘(CVS)
 		oPayment.SendExtend.Desc_1 = "BarCode01";
 		oPayment.SendExtend.Desc_2 = "BarCode02";
 		oPayment.SendExtend.Desc_3 = "BarCode03";
 		oPayment.SendExtend.Desc_4 = "BarCode04";
+		//
 		oPayment.SendExtend.PaymentInfoURL = ServerIP + "/checkOutFeedback_BARCODE.jsp";
+		//oPayment.SendExtend.PaymentInfoURL = ServerIP + "/checkOutFeedback_CSV.jsp";
 		
 		/* Alipay */
 		oPayment.SendExtend.Email = "ks.lin@allpay.com.tw";

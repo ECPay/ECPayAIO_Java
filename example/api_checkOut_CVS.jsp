@@ -40,6 +40,7 @@
 		oPayment.Send.TradeDesc = AllPayFunction.genString("測試");
 		oPayment.Send.ChoosePayment = PaymentMethod.CVS;
 		
+		oPayment.SendExtend.StoreExpireDate = 15; //分鐘
 		oPayment.SendExtend.Desc_1 = "BarCode01";
 		oPayment.SendExtend.Desc_2 = "BarCode02";
 		oPayment.SendExtend.Desc_3 = "BarCode03";
