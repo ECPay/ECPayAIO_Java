@@ -96,7 +96,7 @@
 			out.println("TradeDate = " + szTradeDate + "<br/>");
 			out.println("TradeNo = " + szTradeNo + "<br/>");
 			out.println("<br/>");
-			/* 使用 CVS 或 BARCODE 交易時，回傳的額外參數 */
+			/* 使用 BARCODE 交易時，回傳的額外參數 */
 			out.println("使用 BARCODE 交易時，回傳的額外參數" + "<br/>");
 			out.println("PaymentNo = " + szPaymentNo + "<br/>");
 			out.println("ExpireDate = " + szExpireDate + "<br/>");
@@ -111,8 +111,10 @@
 	}
 	finally {
 		// 回覆錯誤訊息。
-	    if (enErrors.size() > 0)
+	    if (enErrors.size() > 0) {
 	    	out.println("0|" + enErrors);
+		}	
+		out.println("<br/>");
 	}
 %>
 

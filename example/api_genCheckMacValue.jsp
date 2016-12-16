@@ -29,8 +29,12 @@
 		StringBuilder stringBuilder = new StringBuilder();
 		enErrors.addAll(oPayment.GenCheckMacValue(stringBuilder));
 		
-		out.print(stringBuilder + "<br/>");
-		out.println("<br/>");
+		if (enErrors.size() == 0) {
+			out.println("0|" + "無回傳值(遠端服務無法回傳到測試網站, 請檢查測試的網路環境)" + "<br/>");
+		} else {
+			out.print(stringBuilder + "<br/>");
+			out.println("<br/>");
+		}	
 	}
 	catch (Exception e) {
 		// 例外錯誤處理。
@@ -38,8 +42,14 @@
 	}
 	finally {
 		// 回覆錯誤訊息。
-	    if (enErrors.size() > 0)
-	    	out.println("0|" + enErrors);
+	    if (enErrors.size() > 0) {
+			if (!enErrors.contains(null)) {	
+				out.println("0|" + enErrors + "<br/>");
+		    } else {
+				out.println("0|" + "無回傳值(遠端服務無法回傳到測試網站, 請檢查測試的網路環境)" + "<br/>");
+			}
+            out.println("<br/>");
+		}
 	}
 %>
 

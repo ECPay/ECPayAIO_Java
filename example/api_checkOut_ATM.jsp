@@ -67,16 +67,27 @@
 		oPayment.Send.Items.add(a2);
 		
 		enErrors.addAll(oPayment.CheckOut(response.getWriter()));
-		
+
 	}
 	catch (Exception e) {
 		enErrors.add(e.getMessage());
 	}
 	finally {
 		// 回覆錯誤訊息。
-	    if (enErrors.size() > 0)
-	    	out.println("0|" + enErrors);
+	    if (enErrors.size() > 0) {
+			if (!enErrors.contains(null)) {	
+				out.println("0|" + enErrors + "<br/>");
+		    } else {
+				out.println("0|" + "無回傳值(遠端服務無法回傳到測試網站, 請檢查測試的網路環境)" + "<br/>");
+			}
+            out.println("<br/>");
+		}
 	}
 %>
+
+<form action="<%=session.getAttribute("ServerIP")%>" method="post">
+	<input type="button" value="回到Ecpay金流測試首頁" onClick="submit()">	
+</form>
+
 </body>
 </html>

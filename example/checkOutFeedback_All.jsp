@@ -87,8 +87,10 @@
 	}
 	finally {
 		// 回覆錯誤訊息。
-	    if (enErrors.size() > 0)
+	    if (enErrors.size() > 0) {
 	    	out.println("0|" + enErrors);
+		}	
+		out.println("<br/>");
 	}
 %>
 

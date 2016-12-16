@@ -119,12 +119,14 @@
 	}
 	finally {
 		// 回覆錯誤訊息。
-	    if (enErrors.size() > 0)
+	    if (enErrors.size() > 0) {
 	    	out.println("0|" + enErrors);
+		}	
+		out.println("<br/>");
 	}
 %>
 
-<form action="<%=session.getAttribute("ServerIP")%>" method="post">
+<form action="<%=session.getAttribute("ServerIP")%>/"" method="post">
 	<input type="button" value="回到Ecpay金流測試首頁" onClick="submit()">	
 </form>
 

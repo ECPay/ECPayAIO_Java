@@ -27,7 +27,7 @@
 			Set<String> key = htFeedback.keySet();
 			String name[] = key.toArray(new String[key.size()]);
 			for(int i = 0 ; i < name.length ; i++) {
-				out.println(name[i] + " = " + htFeedback.get(name[i] + "<br/>");
+				out.println(name[i] + " = " + htFeedback.get(name[i]) + "<br/>");
 			}
 			out.println("<br/>");
 		}	
@@ -37,8 +37,10 @@
 	}
 	finally {
 		// 回覆錯誤訊息。
-	    if (enErrors.size() > 0)
+	    if (enErrors.size() > 0) {
 	    	out.println("0|" + enErrors);
+		}	
+		out.println("<br/>");
 	}
 %>
 

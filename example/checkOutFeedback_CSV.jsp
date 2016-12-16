@@ -23,7 +23,7 @@
 		
 		if (enErrors.size() == 0) {			
 			out.println("0|" + "無回傳值(遠端服務無法回傳到測試網站, 請檢查測試的網路環境)" + "<br/>");
-		} else {		
+		} else {
 			Set<String> key = htFeedback.keySet();
 			String name[] = key.toArray(new String[key.size()]);
 			
@@ -111,8 +111,10 @@
 	}
 	finally {
 		// 回覆錯誤訊息。
-	    if (enErrors.size() > 0)
+	    if (enErrors.size() > 0) {
 	    	out.println("0|" + enErrors);
+		}	
+		out.println("<br/>");
 	}
 %>
 
