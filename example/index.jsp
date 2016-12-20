@@ -19,6 +19,7 @@
 	session.setAttribute("HashKey", "5294y06JbISpM5x9");
 	session.setAttribute("HashIV", "v77hoKGq4kWxNNIS");
 	session.setAttribute("MerchantID", "2000132");
+	//
 	session.setAttribute("ServerIP", "http://127.0.0.1:8080/aioEcpay");
 %>
 

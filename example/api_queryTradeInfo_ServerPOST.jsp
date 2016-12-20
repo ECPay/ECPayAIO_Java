@@ -32,9 +32,14 @@
 		Hashtable<String, String> htFeedback = new Hashtable<String, String>();		
 		enErrors.addAll(oPayment.QueryTradeInfo(htFeedback));
 		
-		if (enErrors.size() == 0) {
+		if (htFeedback.toString() == "{}") {
 			out.println("0|" + "無回傳值(遠端服務無法回傳到測試網站, 請檢查測試的網路環境)" + "<br/>");
-		} else {		
+		} else {
+			/* 查詢後的回傳的基本參數 */
+			out.println("查詢後所有的回傳參數" + "<br/>");
+			out.println(htFeedback + "<br/>");
+			out.println("<br/>");
+			
 			Set<String> key = htFeedback.keySet();
 			String name[] = key.toArray(new String[key.size()]);
 			
@@ -50,6 +55,7 @@
 			String szTradeDate = "";
 			String szTradeStatus = "";
 			String szItemName = "";
+			String szCheckMacValue = "";
 			/* 使用 WebATM 交易時，回傳的額外參數 */
 			String szWebATMAccBank = "";
 			String szWebATMAccNo = "";
@@ -111,6 +117,8 @@
 					szTradeStatus = htFeedback.get(name[i]);
 				else if(name[i].equals("ItemName"))
 					szItemName = htFeedback.get(name[i]);
+				else if(name[i].equals("CheckMacValue"))
+					szCheckMacValue = htFeedback.get(name[i]);
 				/* 使用 WebATM 交易時回傳的參數 */
 				else if(name[i].equals("WebATMAccBank"))
 					szWebATMAccBank = htFeedback.get(name[i]);
@@ -189,6 +197,7 @@
 			out.println("TradeDate = " + szTradeDate + "<br/>");
 			out.println("TradeStatus = " + szTradeStatus + "<br/>");
 			out.println("ItemName = " + szItemName + "<br/>");
+			out.println("CheckMacValue = " + szCheckMacValue + "<br/>");
 			out.println("<br/>");
 			/* 使用 WebATM 交易時回傳的參數 */
 			out.println("使用 WebATM 交易時回傳的參數" + "<br/>");
