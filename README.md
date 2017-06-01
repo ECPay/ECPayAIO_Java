@@ -1,27 +1,28 @@
-## ECPayç¶ ç•Œç§‘æŠ€ å…¨æ–¹ä½(All In One)é‡‘æµä»‹æ¥ Javaç‰ˆ
+# ºñ¬É ¥ş¤è¦ì(All In One)ª÷¬y¤¶±µJavaª©
+---
 
-### 1. ä»‹ç´¹
+## 1. ¤¶²Ğ
 
-* ECPayç¶ ç•Œç§‘æŠ€å°æ–¼æœ‰æ”¶æ¬¾éœ€æ±‚çš„æœƒå“¡ï¼Œæä¾›å®Œæ•´çš„äº¤æ˜“ä»‹æ¥APIï¼Œä¸¦æœ‰å¤šç¨®æ”¶æ¬¾æ–¹å¼(All In One)å¯é¸æ“‡ä½¿ç”¨ã€‚
-æœ¬å¥—ä»¶ç‚ºJavaç‰ˆï¼Œå¯ä½¿ç”¨ä½œå»ºç«‹è¨‚å–®ï¼Œæ¥å—ä»˜æ¬¾é€šçŸ¥ï¼ŒæŸ¥è©¢è¨‚å–®ç­‰é‡‘æµäº¤æ˜“çš„æ‡‰ç”¨ã€‚
-* æ”¶æ¬¾æ–¹å¼æ¸…å–®ï¼š
-  * ä¿¡ç”¨å¡(ä¸€æ¬¡ä»˜æ¸…ã€åˆ†æœŸä»˜æ¬¾ã€å®šæœŸå®šé¡)
-  * ç¶²è·¯ATM
-  * ATMæ«ƒå“¡æ©Ÿ
-  * è¶…å•†ä»£ç¢¼
-  * è¶…å•†æ¢ç¢¼
+  - ºñ¬É¹ï©ó¦³¦¬´Ú»İ¨Dªº·|­û¡A´£¨Ñ§¹¾ãªº¥æ©ö¤¶±µAPI¡A¨Ã¦³¦hºØ¦¬´Ú¤è¦¡(All In One)¥i¿ï¾Ü¨Ï¥Î¡C ¥»®M¥ó¬°Javaª©¡A¥i¨Ï¥Î§@«Ø¥ß­q³æ¡A±µ¨ü¥I´Ú³qª¾¡A¬d¸ß­q³æµ¥ª÷¬y¥æ©öªºÀ³¥Î¡C
+  - ¦¬´Ú¤è¦¡²M³æ¡G
+    - «H¥Î¥d(¤@¦¸¥I²M¡B¤À´Á¥I´Ú¡B©w´Á©wÃB)
+    - ºô¸ôATM
+    - ATMÂd­û¾÷
+    - ¶W°Ó¥N½X
+
+
+## 2. ¦w¸ËÀô¹Ò
+  - _jdk 1.6¥H¤W_
  
 
-### 2. å®‰è£ç’°å¢ƒ
-
-* JDK 1.5 ä»¥ä¸Š
-
-### 3. åƒè€ƒæ–‡ä»¶
-
-* https://www.ecpay.com.tw/Service/API_Dwnld
-
-### 4. è¯çµ¡æˆ‘å€‘
-
-* ECPayç¶ ç•Œç§‘æŠ€ æŠ€è¡“å®¢æœä¿¡ç®±ï¼štechsupport@greenworld.com.tw
+## 3. ¨Ï¥Î±Ğ¾Ç
+  - ¨Ï¥ÎªÌ¤å¥ó©ñ¸m©óDoc¸ê®Æ§¨¤º¡A¥i¨Ñ°Ñ¾\
 
 
+## 4. Ápµ¸§Ú­Ì
+  - ºñ¬É§Ş³N«ÈªA«H½c: techsupport@greenworld.com.tw
+
+
+
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
