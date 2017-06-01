@@ -48,7 +48,7 @@ public class VerifyCreateServerOrder extends PaymentVerifyBase{
 			} catch (Exception e) {
 				throw new EcpayException(ErrorMessage.OBJ_MISSING_FIELD);
 			}
-			requireCheck(tmpEle.getAttribute("name"), objValue, tmpEle.getAttribute("require").toString());
+//			requireCheck(tmpEle.getAttribute("name"), objValue, tmpEle.getAttribute("require").toString());
 			valueCheck(tmpEle.getAttribute("type"), objValue, tmpEle);
 		}
 	}

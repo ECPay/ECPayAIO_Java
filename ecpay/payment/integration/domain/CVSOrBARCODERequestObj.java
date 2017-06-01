@@ -50,10 +50,22 @@ public class CVSOrBARCODERequestObj {
 	private String PaymentType;
 	
 	/**
+	 * PaymentTypeChargeFee
+	 * 
+	 */
+	private String PaymentTypeChargeFee;
+	
+	/**
 	 * TradeDate
 	 * 訂單成立時間
 	 */
 	private String TradeDate;
+	
+	/**
+	 * SimulatePaid
+	 * 是否為模擬付款
+	 */
+	private String SimulatePaid;
 	
 	/**
 	 * CheckMacValue
@@ -389,13 +401,42 @@ public class CVSOrBARCODERequestObj {
 	public void setCustomField4(String customField4) {
 		CustomField4 = customField4;
 	}
+	/**
+	 * 取得PaymentTypeChargeFee 通路費
+	 * @return PaymentTypeChargeFee
+	 */
+	public String getPaymentTypeChargeFee() {
+		return PaymentTypeChargeFee;
+	}
+	/**
+	 * 設定PaymentTypeChargeFee 通路費
+	 * @param paymentTypeChargeFee
+	 */
+	public void setPaymentTypeChargeFee(String paymentTypeChargeFee) {
+		PaymentTypeChargeFee = paymentTypeChargeFee;
+	}
+	/**
+	 * 取得SimulatePaid 是否為模擬付款 
+	 * @return SimulatePaid
+	 */
+	public String getSimulatePaid() {
+		return SimulatePaid;
+	}
+	/**
+	 * 設定SimulatePaid 是否為模擬付款 
+	 * @param simulatePaid
+	 */
+	public void setSimulatePaid(String simulatePaid) {
+		SimulatePaid = simulatePaid;
+	}
 	@Override
 	public String toString() {
 		return "CVSOrBARCODERequestObj [MerchantID=" + MerchantID + ", MerchantTradeNo=" + MerchantTradeNo
 				+ ", RtnCode=" + RtnCode + ", RtnMsg=" + RtnMsg + ", TradeNo=" + TradeNo + ", TradeAmt=" + TradeAmt
-				+ ", PaymentType=" + PaymentType + ", TradeDate=" + TradeDate + ", CheckMacValue=" + CheckMacValue
-				+ ", PaymentNo=" + PaymentNo + ", ExpireDate=" + ExpireDate + ", Barcode1=" + Barcode1 + ", Barcode2="
-				+ Barcode2 + ", Barcode3=" + Barcode3 + ", StoreID=" + StoreID + ", CustomField1=" + CustomField1
+				+ ", PaymentType=" + PaymentType + ", PaymentTypeChargeFee=" + PaymentTypeChargeFee + ", TradeDate="
+				+ TradeDate + ", SimulatePaid=" + SimulatePaid + ", CheckMacValue=" + CheckMacValue + ", PaymentNo="
+				+ PaymentNo + ", ExpireDate=" + ExpireDate + ", Barcode1=" + Barcode1 + ", Barcode2=" + Barcode2
+				+ ", Barcode3=" + Barcode3 + ", StoreID=" + StoreID + ", CustomField1=" + CustomField1
 				+ ", CustomField2=" + CustomField2 + ", CustomField3=" + CustomField3 + ", CustomField4=" + CustomField4
 				+ "]";
 	}

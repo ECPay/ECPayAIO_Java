@@ -56,10 +56,22 @@ public class ATMRequestObj {
 	private String PaymentType;
 	
 	/**
+	 * PaymentTypeChargeFee
+	 * 通路費 
+	 */
+	private String PaymentTypeChargeFee;
+	
+	/**
 	 * TradeDate
 	 * 訂單成立時間
 	 */
 	private String TradeDate;
+	
+	/**
+	 * SimulatePaid
+	 * 是否為模擬付款 
+	 */
+	private String SimulatePaid;
 	
 	/**
 	 * CustomField1
@@ -349,13 +361,42 @@ public class ATMRequestObj {
 	public void setCustomField4(String customField4) {
 		CustomField4 = customField4;
 	}
+	/**
+	 * 取得PaymentTypeChargeFee 通路費
+	 * @return PaymentTypeChargeFee
+	 */
+	public String getPaymentTypeChargeFee() {
+		return PaymentTypeChargeFee;
+	}
+	/**
+	 * 設定PaymentTypeChargeFee 通路費
+	 * @param paymentTypeChargeFee
+	 */
+	public void setPaymentTypeChargeFee(String paymentTypeChargeFee) {
+		PaymentTypeChargeFee = paymentTypeChargeFee;
+	}
+	/**
+	 * 取得SimulatePaid 是否為模擬付款 
+	 * @return SimulatePaid
+	 */
+	public String getSimulatePaid() {
+		return SimulatePaid;
+	}
+	/**
+	 * 設定SimulatePaid 是否為模擬付款 
+	 * @param simulatePaid
+	 */
+	public void setSimulatePaid(String simulatePaid) {
+		SimulatePaid = simulatePaid;
+	}
 	@Override
 	public String toString() {
 		return "ATMRequestObj [MerchantID=" + MerchantID + ", MerchantTradeNo=" + MerchantTradeNo + ", StoreID="
 				+ StoreID + ", RtnCode=" + RtnCode + ", RtnMsg=" + RtnMsg + ", TradeNo=" + TradeNo + ", TradeAmt="
-				+ TradeAmt + ", PaymentType=" + PaymentType + ", TradeDate=" + TradeDate + ", CustomField1="
-				+ CustomField1 + ", CustomField2=" + CustomField2 + ", CustomField3=" + CustomField3 + ", CustomField4="
-				+ CustomField4 + ", CheckMacValue=" + CheckMacValue + ", BankCode=" + BankCode + ", vAccount="
-				+ vAccount + ", ExpireDate=" + ExpireDate + "]";
+				+ TradeAmt + ", PaymentType=" + PaymentType + ", PaymentTypeChargeFee=" + PaymentTypeChargeFee
+				+ ", TradeDate=" + TradeDate + ", SimulatePaid=" + SimulatePaid + ", CustomField1=" + CustomField1
+				+ ", CustomField2=" + CustomField2 + ", CustomField3=" + CustomField3 + ", CustomField4=" + CustomField4
+				+ ", CheckMacValue=" + CheckMacValue + ", BankCode=" + BankCode + ", vAccount=" + vAccount
+				+ ", ExpireDate=" + ExpireDate + "]";
 	}
 }
