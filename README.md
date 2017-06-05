@@ -9,7 +9,7 @@
     - 網路ATM
     - ATM櫃員機
     - 超商代碼
-    - Andriod Pay
+    - Android Pay
 
 
 ## 2. 安裝環境
