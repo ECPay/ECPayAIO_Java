@@ -339,8 +339,8 @@
   </AioCheckOut>
   <QueryTradeInfo>
     <ServiceAddress>
-        <url type="Production">https://payment.ecpay.com.tw/Cashier/QueryTradeInfo/V2</url>
-        <url type="Test">https://payment-stage.ecPay.com.tw/Cashier/QueryTradeInfo/V2</url>
+        <url type="Production">https://payment.ecpay.com.tw/Cashier/QueryTradeInfo/V5</url>
+        <url type="Test">https://payment-stage.ecPay.com.tw/Cashier/QueryTradeInfo/V5</url>
     </ServiceAddress>
     <Config>
         <switchparam>
