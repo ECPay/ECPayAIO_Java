@@ -9,6 +9,7 @@
     - 網路ATM
     - ATM櫃員機
     - 超商代碼
+    - Apple Pay
     - Android Pay
 
 

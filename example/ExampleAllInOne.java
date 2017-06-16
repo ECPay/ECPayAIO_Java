@@ -229,7 +229,7 @@ public class ExampleAllInOne {
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
 		obj.setHoldTradeAMT("0");
-		obj.setCreditInstallment("5");
+		obj.setCreditInstallment("3,6");
 		obj.setInstallmentAmount("10");
 		String form = all.aioCheckOut(obj, null);
 		return form;

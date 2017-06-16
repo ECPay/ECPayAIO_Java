@@ -70,10 +70,8 @@
             	<option>0</option>
             	<option>1</option>
             </param>
-            <param type="Int"  require="0" name="CreditInstallment" category="Divide">
-                <mode>BETWEEN</mode> <!--BETWEEN, GE, LE, EXCLUDE  -->
-                <maximum>60</maximum>
-                <minimal>2</minimal>
+            <param type="String"  require="0" name="CreditInstallment" category="Divide">
+                <pattern>^(3|6|12|18|24){1}(,3|,6|,12|,18|,24){0,4}$</pattern>
             </param>
             <param type="Int"  require="0" name="InstallmentAmount" category="Divide">
                 <mode>GE</mode> <!--BETWEEN, GE, LE, EXCLUDE  -->
