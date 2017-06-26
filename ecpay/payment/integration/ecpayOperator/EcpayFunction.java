@@ -88,6 +88,7 @@ public class EcpayFunction {
 		AlgorithmParameters iv = AlgorithmParameters.getInstance("AES");
 		iv.init(new IvParameterSpec(HashIV.getBytes("UTF-8")));
 		plaintext = pkcs7Padding(plaintext);
+		System.out.println(plaintext.length());
 		Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM);
 		cipher.init(Cipher.ENCRYPT_MODE, key, iv);
 		byte[] encrypt = cipher.doFinal(plaintext.getBytes("UTF-8"));
@@ -108,7 +109,7 @@ public class EcpayFunction {
 		int pad = 0;
 		if(plaintext.length() < blockSize){
 			pad = blockSize - plaintext.length();
-		} else if(plaintext.length() > blockSize){
+		} else if(plaintext.length() >= blockSize){
 			if(plaintext.length() % blockSize == 0){
 				pad = 16;
 			} else{
