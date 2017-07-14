@@ -221,7 +221,7 @@ public class EcpayFunction {
 			connection.setRequestProperty("Accept-Language", encoding);
 			connection.setDoOutput(true);
 			DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-			wr.writeBytes(urlParameters);
+			wr.write(urlParameters.getBytes(encoding));
 			wr.flush();
 			wr.close();
 			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), encoding));
