@@ -22,7 +22,7 @@
 
 
 ## 4. 聯絡我們
-  - 綠界技術客服信箱: techsupport@greenworld.com.tw
+  - 綠界技術客服信箱: techsupport@ecpay.com.tw
 
 
 
