@@ -10,7 +10,7 @@
     - ATM櫃員機
     - 超商代碼
     - Apple Pay
-    - Android Pay
+    - Google Pay
 
 
 ## 2. 安裝環境
