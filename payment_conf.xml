@@ -17,11 +17,13 @@
         </MInfo>
     </MerchantInfo>
     
-    <IgnorePayment>
-        <Method>Credit</Method>
+   <IgnorePayment>
+   <!-- <Method>Credit</Method>
         <Method>WebATM</Method>
         <Method>ATM</Method>
         <Method>CVS</Method>
+        <Method>BARCODE</Method>
+        <Method>GooglePay</Method>-->
     </IgnorePayment>
 
 </Conf>
