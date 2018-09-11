@@ -10,7 +10,7 @@ import ecpay.payment.integration.domain.AioCheckOutBARCODE;
 import ecpay.payment.integration.domain.AioCheckOutCVS;
 import ecpay.payment.integration.domain.AioCheckOutDevide;
 import ecpay.payment.integration.domain.AioCheckOutOneTime;
-import ecpay.payment.integration.domain.AioCheckOutGooglePay;
+//import ecpay.payment.integration.domain.AioCheckOutGooglePay;
 import ecpay.payment.integration.domain.AioCheckOutPeriod;
 import ecpay.payment.integration.domain.AioCheckOutWebATM;
 import ecpay.payment.integration.domain.CaptureObj;
@@ -27,23 +27,23 @@ public class ExampleAllInOne {
 	public static AllInOne all;
 	public static void main(String[] args) {
 		initial();
-		System.out.println("compare CheckMacValue method testing result: " + cmprChkMacValue());
-		System.out.println("apple pay create order: " + postCreateServerOrder());
-		System.out.println("doAction: " + postDoAction());
-		System.out.println("queryTradeInfo: " + postQueryTradeInfo());
-		System.out.println("queryCreditCardPeriodInfo: " + postQueryCreditCardPeriodInfo());
-		System.out.println("capture: " + postCapture());
-		System.out.println("queryTrade: " + postQueryTrade());
-		System.out.println("tradeNoAio: " + postTradeNoAio());
-		System.out.println("fundingReconDetail: " + postFundingReconDetail());
-		System.out.println("aioCheckOutALL: " + genAioCheckOutALL());
-		System.out.println("aioCheckOutATM: " + genAioCheckOutATM());
-		System.out.println("aioCheckOutCVS: " + genAioCheckOutCVS());
-		System.out.println("aioCheckOutBARCODE: " + genAioCheckOutBARCODE());
-		System.out.println("aioCheckOutDevide: " + genAioCheckOutDevide());
-		System.out.println("aioCheckOutOneTime: " + genAioCheckOutOneTime());
-		System.out.println("aioCheckOutGooglePay: " + genAioCheckOutGooglePay());
-		System.out.println("aioCheckOutPeriod: " + genAioCheckOutPeriod());
+//		System.out.println("compare CheckMacValue method testing result: " + cmprChkMacValue());
+//		System.out.println("apple pay create order: " + postCreateServerOrder());
+//		System.out.println("doAction: " + postDoAction());
+//		System.out.println("queryTradeInfo: " + postQueryTradeInfo());
+//		System.out.println("queryCreditCardPeriodInfo: " + postQueryCreditCardPeriodInfo());
+//		System.out.println("capture: " + postCapture());
+//		System.out.println("queryTrade: " + postQueryTrade());
+//		System.out.println("tradeNoAio: " + postTradeNoAio());
+//		System.out.println("fundingReconDetail: " + postFundingReconDetail());
+//		System.out.println("aioCheckOutALL: " + genAioCheckOutALL());
+//		System.out.println("aioCheckOutATM: " + genAioCheckOutATM());
+//		System.out.println("aioCheckOutCVS: " + genAioCheckOutCVS());
+//		System.out.println("aioCheckOutBARCODE: " + genAioCheckOutBARCODE());
+//		System.out.println("aioCheckOutDevide: " + genAioCheckOutDevide());
+//		System.out.println("aioCheckOutOneTime: " + genAioCheckOutOneTime());
+//		//System.out.println("aioCheckOutGooglePay: " + genAioCheckOutGooglePay());
+//		System.out.println("aioCheckOutPeriod: " + genAioCheckOutPeriod());
 		System.out.println("aioCheckOutWebATM: " + genAioCheckOutWebATM());
 	}
 	private static void initial(){
@@ -64,8 +64,8 @@ public class ExampleAllInOne {
 		obj.setTotalAmount("1000");
 		obj.setCurrencyCode("TWD");
 		try {
-			obj.setItemName(new String("哈".getBytes("BIG5"), "UTF-8"));
-			obj.setTradeDesc(new String("哈".getBytes("BIG5"), "UTF-8"));
+			obj.setItemName(new String("���".getBytes("BIG5"), "UTF-8"));
+			obj.setTradeDesc(new String("���".getBytes("BIG5"), "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -131,42 +131,61 @@ public class ExampleAllInOne {
 	
 	public static String genAioCheckOutWebATM(){
 		AioCheckOutWebATM obj = new AioCheckOutWebATM();
-		obj.setMerchantTradeNo("testCompany0003");
-		obj.setMerchantTradeDate("2017/01/01 08:05:08");
-		obj.setTotalAmount("100");
-		obj.setTradeDesc("test Description");
-		obj.setItemName("Test Item");
-		obj.setReturnURL("http://211.23.128.214:5000");
-		obj.setNeedExtraPaidInfo("N");
-		obj.setHoldTradeAMT("0");
-		String form = all.aioCheckOut(obj, null);
-		return form;
-	}
-	
-	public static String genAioCheckOutALL(){
-		AioCheckOutALL obj = new AioCheckOutALL();
-		obj.setMerchantTradeNo("testCompany0004");
+		InvoiceObj invoice = new InvoiceObj();
+		obj.setMerchantTradeNo("w13e66ik");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
+		obj.setNeedExtraPaidInfo("Y");
+		obj.setInvoiceMark("Y");
+		invoice.setRelateNumber("1056534");
+		invoice.setCustomerID("123456");
+		invoice.setCarruerType("1");
+		invoice.setTaxType("1");
+		invoice.setCarruerNum("");
+		invoice.setDonation("1");
+		invoice.setLoveCode("123456");
+		invoice.setPrint("0");
+		invoice.setCustomerName("Mark");
+		invoice.setCustomerAddr("TTT");
+		invoice.setCustomerPhone("0911429215");
+		invoice.setDelayDay("0");
+		invoice.setInvType("07");
+		invoice.setInvoiceItemName("TTT");
+		invoice.setInvoiceItemCount("1");
+		invoice.setInvoiceItemWord("TTT");
+		invoice.setInvoiceItemPrice("50");
+		invoice.setInvoiceItemTaxType("1");
+		String form = all.aioCheckOut(obj, invoice);
+		return form;
+	}
+	
+	public static String genAioCheckOutALL(){
+		AioCheckOutALL obj = new AioCheckOutALL();
+		obj.setMerchantTradeNo("testw123qad");
+		obj.setMerchantTradeDate("2018/08/23 15:05:08");
+		obj.setTotalAmount("50");
+		obj.setTradeDesc("test Description");
+		obj.setItemName("TestItem");
+		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		obj.setHoldTradeAMT("0");
+		 
 		String form = all.aioCheckOut(obj, null);
 		return form;
 	}
 	
 	public static String genAioCheckOutATM(){
 		AioCheckOutATM obj = new AioCheckOutATM();
-		obj.setMerchantTradeNo("testCompany0005");
+		obj.setMerchantTradeNo("20356tf");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		obj.setHoldTradeAMT("0");
+		 
 		obj.setExpireDate("6");
 		String form = all.aioCheckOut(obj, null);
 		return form;
@@ -174,14 +193,14 @@ public class ExampleAllInOne {
 	
 	public static String genAioCheckOutBARCODE(){
 		AioCheckOutBARCODE obj = new AioCheckOutBARCODE();
-		obj.setMerchantTradeNo("testCompany0007");
+		obj.setMerchantTradeNo("testCompany00w7");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		obj.setHoldTradeAMT("0");
+		 
 		obj.setStoreExpireDate("3");
 		String form = all.aioCheckOut(obj, null);
 		return form;
@@ -190,31 +209,31 @@ public class ExampleAllInOne {
 	public static String genAioCheckOutCVS(){
 		AioCheckOutCVS obj = new AioCheckOutCVS();
 		InvoiceObj invoice = new InvoiceObj();
-		obj.setMerchantTradeNo("testCompany0007");
+		obj.setMerchantTradeNo("wh1jwereik");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		obj.setHoldTradeAMT("0");
 		obj.setStoreExpireDate("3");
-		
+		obj.setInvoiceMark("Y");
+		invoice.setRelateNumber("123034");
 		invoice.setCustomerID("123456");
 		invoice.setCarruerType("1");
 		invoice.setTaxType("1");
 		invoice.setCarruerNum("");
-		invoice.setDonation("2");
-		invoice.setLoveCode("X123456");
+		invoice.setDonation("1");
+		invoice.setLoveCode("123456");
 		invoice.setPrint("0");
 		invoice.setCustomerName("Mark");
-		invoice.setCustomerAddr("�x�_");
+		invoice.setCustomerAddr("TTT");
 		invoice.setCustomerPhone("0911429215");
 		invoice.setDelayDay("1");
 		invoice.setInvType("07");
-		invoice.setInvoiceItemName("�q��");
+		invoice.setInvoiceItemName("TTT");
 		invoice.setInvoiceItemCount("1");
-		invoice.setInvoiceItemWord("�x");
+		invoice.setInvoiceItemWord("TTT");
 		invoice.setInvoiceItemPrice("50");
 		invoice.setInvoiceItemTaxType("1");
 		String form = all.aioCheckOut(obj, invoice);
@@ -223,14 +242,14 @@ public class ExampleAllInOne {
 	
 	public static String genAioCheckOutDevide(){
 		AioCheckOutDevide obj = new AioCheckOutDevide();
-		obj.setMerchantTradeNo("testCompany0007");
+		obj.setMerchantTradeNo("testCosdassds");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		obj.setHoldTradeAMT("0");
+		 
 		obj.setCreditInstallment("3,6");
 		obj.setInstallmentAmount("10");
 		String form = all.aioCheckOut(obj, null);
@@ -239,43 +258,43 @@ public class ExampleAllInOne {
 	
 	public static String genAioCheckOutOneTime(){
 		AioCheckOutOneTime obj = new AioCheckOutOneTime();
-		obj.setMerchantTradeNo("testCompany0008");
+		obj.setMerchantTradeNo("testCompasny08");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		obj.setHoldTradeAMT("0");
+		 
 		obj.setRedeem("Y");
 		String form = all.aioCheckOut(obj, null);
 		return form;
 	}
 	
-	public static String genAioCheckOutGooglePay(){
+	/*public static String genAioCheckOutGooglePay(){
 		AioCheckOutGooglePay obj = new AioCheckOutGooglePay();
 		obj.setMerchantTradeNo("testCompany0028");
-		obj.setMerchantTradeDate("2017/01/01 08:05:23");
+		obj.setMerchantTradeDate("2018/08/23 18:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		obj.setHoldTradeAMT("0");
+		 
 		String form = all.aioCheckOut(obj, null);
 		return form;
-	}
+	}*/
 	
 	public static String genAioCheckOutPeriod(){
 		AioCheckOutPeriod obj = new AioCheckOutPeriod();
-		obj.setMerchantTradeNo("testCompany0009");
+		obj.setMerchantTradeNo("testCompan0019");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		obj.setHoldTradeAMT("0");
+		 
 		obj.setPeriodAmount("50");
 		obj.setPeriodType("D");
 		obj.setFrequency("1");

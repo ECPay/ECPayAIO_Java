@@ -20,7 +20,7 @@ import ecpay.payment.integration.domain.AioCheckOutBARCODE;
 import ecpay.payment.integration.domain.AioCheckOutCVS;
 import ecpay.payment.integration.domain.AioCheckOutDevide;
 import ecpay.payment.integration.domain.AioCheckOutOneTime;
-import ecpay.payment.integration.domain.AioCheckOutGooglePay;
+//import ecpay.payment.integration.domain.AioCheckOutGooglePay;
 import ecpay.payment.integration.domain.AioCheckOutPeriod;
 import ecpay.payment.integration.domain.AioCheckOutWebATM;
 import ecpay.payment.integration.domain.CVSOrBARCODERequestObj;
@@ -47,7 +47,7 @@ import ecpay.payment.integration.verification.VerifyQueryTradeInfo;
 import ecpay.payment.integration.verification.VerifyTradeNoAio;
 
 /**
- * 全功能無履約保證類別
+ * ����撅亦����
  * @author mark.chiu
  *
  */
@@ -57,7 +57,7 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * AllInOne Constructor
-	 * 參數帶入log4j.properties的路徑，若帶入空字串則預設不產生log
+	 * ��撣嗅log4j.properties��楝敺�撣嗅蝛箏�葡���身銝��og
 	 * @param log4jPropertiesPath
 	 */
 	public AllInOne(String log4jPropertiesPath){
@@ -73,7 +73,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 檢查Hashtable中的檢查碼是否正確(確保資料未被竄改)
+	 * 瑼ＸHashtable銝剔�炎�蝣潭�甇�蝣�(蝣箔���鋡怎�)
 	 * @param Hashtable params
 	 * @return boolean 
 	 */
@@ -95,7 +95,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * Apple Pay信用卡授權作業
+	 * Apple Pay靽∠�����平
 	 * @param CreateServerOrderobj
 	 * @return
 	 */
@@ -132,7 +132,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 會員申請撥款/退款的方法
+	 * ���隢甈�/��甈曄�瘜�
 	 * @param captureObj
 	 * @return response string
 	 */
@@ -165,7 +165,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 下載信用卡撥款對帳資料檔的方法
+	 * 銝�縑���甈曉�董鞈���瘜�
 	 * @param fundingReconDetailObj
 	 * @return response string
 	 */
@@ -220,7 +220,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 查詢信用卡單筆明細記錄的方法
+	 * �閰Ｖ縑���蝑�敦閮��瘜�
 	 * @param queryTradeObj
 	 * @return response string
 	 */
@@ -247,7 +247,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 下載會員對帳媒體檔的方法
+	 * 銝��撠董慦���瘜�
 	 * @param tradeNoAioObj
 	 * @return response string
 	 */
@@ -295,7 +295,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 信用卡關帳/退刷/取消/放棄的方法
+	 * 靽∠���董/���/����/�璉�瘜�
 	 * @param doActionObj
 	 * @return response string
 	 */
@@ -327,7 +327,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 查詢訂單資料的方法
+	 * �閰Ｚ�鞈��瘜�
 	 * @param queryTradeInfoObj
 	 * @return response string
 	 */
@@ -360,7 +360,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 信用卡定期定額訂單查詢
+	 * 靽∠�摰�����閰�
 	 * @param queryCreditCardPeriodInfoObj
 	 * @return response JSON string
 	 */
@@ -388,7 +388,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 產生訂單Html form的方法
+	 * ����Html form��瘜�
 	 * @param aioCheckOutObj
 	 * @param invoice
 	 * @param String
@@ -462,8 +462,8 @@ public class AllInOne extends AllInOneBase{
 			}
 			((AioCheckOutOneTime) obj).setInvoiceMark(invoice == null? "N" : "Y");
 			log.info("aioCheckOutOneTime params: " + ((AioCheckOutOneTime) obj).toString());
-		} else if(obj instanceof AioCheckOutGooglePay){
-			((AioCheckOutGooglePay) obj).setPlatformID(PlatformID);
+		} //else if(obj instanceof AioCheckOutGooglePay){
+			/*((AioCheckOutGooglePay) obj).setPlatformID(PlatformID);
 			if(!PlatformID.isEmpty() && ((AioCheckOutGooglePay) obj).getMerchantID().isEmpty()){
 				((AioCheckOutGooglePay) obj).setMerchantID(MerchantID);
 			} else if(!PlatformID.isEmpty() && !((AioCheckOutGooglePay) obj).getMerchantID().isEmpty()){
@@ -472,7 +472,7 @@ public class AllInOne extends AllInOneBase{
 			}
 			((AioCheckOutGooglePay) obj).setInvoiceMark(invoice == null? "N" : "Y");
 			log.info("aioCheckOutGooglePay params: " + ((AioCheckOutGooglePay) obj).toString());
-		} else if(obj instanceof AioCheckOutPeriod){
+		} */else if(obj instanceof AioCheckOutPeriod){
 			((AioCheckOutPeriod) obj).setPlatformID(PlatformID);
 			if(!PlatformID.isEmpty() && ((AioCheckOutPeriod) obj).getMerchantID().isEmpty()){
 				((AioCheckOutPeriod) obj).setMerchantID(MerchantID);
@@ -520,7 +520,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * ATM、CVS或BARCODE的取號結果通知方法。接收傳送至PaymentInfoURL的資料。回傳物件分為ATMRequestObj, CVSOrBARCODERequestObj二種，請用適當的物件承接以免出錯
+	 * ATM�VS�BARCODE��������瘜����PaymentInfoURL�������隞嗅�ATMRequestObj, CVSOrBARCODERequestObj鈭車嚗�����隞嗆�隞亙��
 	 * @param req
 	 * @return obj
 	 */
@@ -568,7 +568,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 產生HTML code
+	 * ���TML code
 	 * @param aio object
 	 * @param invoice obj
 	 * @return string
