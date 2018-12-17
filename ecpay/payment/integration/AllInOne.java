@@ -47,7 +47,7 @@ import ecpay.payment.integration.verification.VerifyQueryTradeInfo;
 import ecpay.payment.integration.verification.VerifyTradeNoAio;
 
 /**
- * ����撅亦����
+ * 全功能無履約保證類別
  * @author mark.chiu
  *
  */
@@ -57,7 +57,7 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * AllInOne Constructor
-	 * ��撣嗅log4j.properties��楝敺�撣嗅蝛箏�葡���身銝��og
+	 * 參數帶入log4j.properties的路徑，若帶入空字串則預設不產生log
 	 * @param log4jPropertiesPath
 	 */
 	public AllInOne(String log4jPropertiesPath){
@@ -73,7 +73,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 瑼ＸHashtable銝剔�炎�蝣潭�甇�蝣�(蝣箔���鋡怎�)
+	 * 檢查Hashtable中的檢查碼是否正確(確保資料未被竄改)
 	 * @param Hashtable params
 	 * @return boolean 
 	 */
@@ -95,7 +95,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * Apple Pay靽∠�����平
+	 * Apple Pay信用卡授權作業
 	 * @param CreateServerOrderobj
 	 * @return
 	 */
@@ -132,7 +132,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * ���隢甈�/��甈曄�瘜�
+	 * 會員申請撥款/退款的方法
 	 * @param captureObj
 	 * @return response string
 	 */
@@ -165,7 +165,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 銝�縑���甈曉�董鞈���瘜�
+	 * 下載信用卡撥款對帳資料檔的方法
 	 * @param fundingReconDetailObj
 	 * @return response string
 	 */
@@ -220,7 +220,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * �閰Ｖ縑���蝑�敦閮��瘜�
+	 * 查詢信用卡單筆明細記錄的方法
 	 * @param queryTradeObj
 	 * @return response string
 	 */
@@ -247,7 +247,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 銝��撠董慦���瘜�
+	 * 下載會員對帳媒體檔的方法
 	 * @param tradeNoAioObj
 	 * @return response string
 	 */
@@ -295,7 +295,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 靽∠���董/���/����/�璉�瘜�
+	 * 信用卡關帳/退刷/取消/放棄的方法
 	 * @param doActionObj
 	 * @return response string
 	 */
@@ -327,7 +327,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * �閰Ｚ�鞈��瘜�
+	 * 查詢訂單資料的方法
 	 * @param queryTradeInfoObj
 	 * @return response string
 	 */
@@ -360,7 +360,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 靽∠�摰�����閰�
+	 * 信用卡定期定額訂單查詢
 	 * @param queryCreditCardPeriodInfoObj
 	 * @return response JSON string
 	 */
@@ -388,7 +388,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * ����Html form��瘜�
+	 * 產生訂單Html form的方法
 	 * @param aioCheckOutObj
 	 * @param invoice
 	 * @param String
@@ -462,8 +462,8 @@ public class AllInOne extends AllInOneBase{
 			}
 			((AioCheckOutOneTime) obj).setInvoiceMark(invoice == null? "N" : "Y");
 			log.info("aioCheckOutOneTime params: " + ((AioCheckOutOneTime) obj).toString());
-		} //else if(obj instanceof AioCheckOutGooglePay){
-			/*((AioCheckOutGooglePay) obj).setPlatformID(PlatformID);
+		}/* else if(obj instanceof AioCheckOutGooglePay){
+			((AioCheckOutGooglePay) obj).setPlatformID(PlatformID);
 			if(!PlatformID.isEmpty() && ((AioCheckOutGooglePay) obj).getMerchantID().isEmpty()){
 				((AioCheckOutGooglePay) obj).setMerchantID(MerchantID);
 			} else if(!PlatformID.isEmpty() && !((AioCheckOutGooglePay) obj).getMerchantID().isEmpty()){
@@ -472,7 +472,7 @@ public class AllInOne extends AllInOneBase{
 			}
 			((AioCheckOutGooglePay) obj).setInvoiceMark(invoice == null? "N" : "Y");
 			log.info("aioCheckOutGooglePay params: " + ((AioCheckOutGooglePay) obj).toString());
-		} */else if(obj instanceof AioCheckOutPeriod){
+		}*/ else if(obj instanceof AioCheckOutPeriod){
 			((AioCheckOutPeriod) obj).setPlatformID(PlatformID);
 			if(!PlatformID.isEmpty() && ((AioCheckOutPeriod) obj).getMerchantID().isEmpty()){
 				((AioCheckOutPeriod) obj).setMerchantID(MerchantID);
@@ -520,7 +520,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * ATM�VS�BARCODE��������瘜����PaymentInfoURL�������隞嗅�ATMRequestObj, CVSOrBARCODERequestObj鈭車嚗�����隞嗆�隞亙��
+	 * ATM、CVS或BARCODE的取號結果通知方法。接收傳送至PaymentInfoURL的資料。回傳物件分為ATMRequestObj, CVSOrBARCODERequestObj二種，請用適當的物件承接以免出錯
 	 * @param req
 	 * @return obj
 	 */
@@ -568,7 +568,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * ���TML code
+	 * 產生HTML code
 	 * @param aio object
 	 * @param invoice obj
 	 * @return string

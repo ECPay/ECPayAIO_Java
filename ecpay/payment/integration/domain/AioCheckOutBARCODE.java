@@ -1,7 +1,7 @@
 package ecpay.payment.integration.domain;
 
 /**
- * ������Ⅳ蝜唾祥閮�隞�
+ * 產生超商條碼繳費訂單物件
  * @author mark.chiu
  *
  */
@@ -9,643 +9,641 @@ public class AioCheckOutBARCODE {
 	
 	/**
 	 * MerchantID
-	 * ���摨楊���(�蝬����)
+	 * 合作特店編號(由綠界提供)
 	 */
 	private String MerchantID = "";
 	
 	/**
 	 * MerchantTradeNo
-	 * ���摨漱��楊���(����摨���)嚗府鈭斗�楊����銴�
+	 * 合作特店交易編號(由合作特店提供)，該交易編號不可重複
 	 */
 	private String MerchantTradeNo = "";
 	
 	/**
 	 * MerchantTradeDate
-	 * ���摨漱�����
+	 * 合作特店交易時間
 	 */
 	private String MerchantTradeDate = "";
 	
 	/**
 	 * PaymentType
-	 * 鈭斗����
+	 * 交易類型
 	 */
 	private String PaymentType = "aio";
 	
 	/**
 	 * TotalAmount
-	 * 鈭斗�憿�
+	 * 交易金額
 	 */
 	private String TotalAmount = "";
 	
 	/**
 	 * TradeDesc
-	 * 鈭斗��膩
+	 * 交易描述
 	 */
 	private String TradeDesc = "";
 	
 	/**
 	 * ItemName
-	 * ����迂
+	 * 商品名稱
 	 */
 	private String ItemName = "";
 	
 	/**
 	 * ReturnURL
-	 * 隞狡摰���蝬脣�
+	 * 付款完成通知回傳網址
 	 */
 	private String ReturnURL = "";
 	
 	/**
 	 * ChoosePayment
-	 * ����身隞狡�撘�
+	 * 選擇預設付款方式
 	 */
 	private String ChoosePayment = "BARCODE";
 	
 	/**
 	 * ClientBackURL
-	 * Client蝡航����摨頂蝯梁����蝯�
+	 * Client端返回合作特店系統的按鈕連結
 	 */
 	private String ClientBackURL = "";
 	
 	/**
 	 * ItemURL
-	 * ����蝬脣�
+	 * 商品銷售網址
 	 */
 	private String ItemURL = "";
 	
 	/**
 	 * Remark
-	 * �閮餅���
+	 * 備註欄位
 	 */
 	private String Remark = "";
 	
 	/**
 	 * ChooseSubPayment
-	 * ����身隞狡摮�
+	 * 選擇預設付款子項目
 	 */
 	private String ChooseSubPayment = "";
 	
 	/**
 	 * OrderResultURL
-	 * Client蝡臬�隞狡蝯�雯��
+	 * Client端回傳付款結果網址
 	 */
 	private String OrderResultURL = "";
 	
 	/**
 	 * NeedExtraPaidInfo
-	 * ����閬����狡鞈��
+	 * 是否需要額外的付款資訊
 	 */
 	private String NeedExtraPaidInfo = "";
 	
 	/**
 	 * DeviceSource
-	 * 鋆蔭靘��
+	 * 裝置來源
 	 */
 	private String DeviceSource = "";
 	
 	/**
 	 * IgnorePayment
-	 * ����狡�撘�
+	 * 隱藏付款方式
 	 */
 	private String IgnorePayment = "";
 	
 	/**
 	 * PlatformID
-	 * �蝝��像���誨���(�蝬����)
+	 * 特約合作平台商代號(由綠界提供)
 	 */
 	private String PlatformID = "";
 	
 	/**
 	 * InvoiceMark
-	 * �摮蟡券��酉閮�
+	 * 電子發票開立註記
 	 */
 	private String InvoiceMark = "";
 	
-
 	/**
 	 * EncryptType
-	 * CheckMacValue�撖���
+	 * CheckMacValue加密類型
 	 */
 	private String EncryptType = "1";
 	
 	/**
 	 * StoreExpireDate
-	 * 頞�像鞎餅甇Ｘ���
+	 * 超商繳費截止時間
 	 */
 	private String StoreExpireDate = "";
 	
 	/**
 	 * Desc_1
-	 * 鈭斗��膩1
+	 * 交易描述1
 	 */
 	private String Desc_1 = "";
 	
 	/**
 	 * Desc_2
-	 * 鈭斗��膩2
+	 * 交易描述2
 	 */
 	private String Desc_2 = "";
 	
 	/**
 	 * Desc_3
-	 * 鈭斗��膩3
+	 * 交易描述3
 	 */
 	private String Desc_3 = "";
 	
 	/**
 	 * Desc_4
-	 * 鈭斗��膩4
+	 * 交易描述4
 	 */
 	private String Desc_4 = "";
 	
 	/**
 	 * PaymentInfoURL
-	 * Server蝡臬�隞狡������
+	 * Server端回傳付款相關資訊
 	 */
 	private String PaymentInfoURL = "";
 	
 	/**
 	 * ClientRedirectURL
-	 * Client蝡臬�隞狡�撘�����
+	 * Client端回傳付款方式相關資訊
 	 */
 	private String ClientRedirectURL = "";
 	
 	/**
 	 * StoreID
-	 * ���摨��誨蝣潘�����摨‵�摨振隞�蝣潔蝙�
+	 * 合作特店商店代碼，提供合作特店填入店家代碼使用
 	 */
 	private String StoreID = "";
 	
 	/**
 	 * CustomField1
-	 * �閮�迂甈��1嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 自訂名稱欄位1，提供合作廠商使用記錄用客製化使用欄位
 	 */
 	private String CustomField1 = "";
 	
 	/**
 	 * CustomField2
-	 * �閮�迂甈��2嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 自訂名稱欄位2，提供合作廠商使用記錄用客製化使用欄位
 	 */
 	private String CustomField2 = "";
 	
 	/**
 	 * CustomField3
-	 * �閮�迂甈��3嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 自訂名稱欄位3，提供合作廠商使用記錄用客製化使用欄位
 	 */
 	private String CustomField3 = "";
 	
 	/**
 	 * CustomField4
-	 * �閮�迂甈��4嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 自訂名稱欄位4，提供合作廠商使用記錄用客製化使用欄位
 	 */
 	private String CustomField4 = "";
 	
 	/********************* getters and setters *********************/
 	
 	/**
-	 * ���erchantID ���摨楊���(�蝬����)
+	 * 取得MerchantID 合作特店編號(由綠界提供)
 	 * @return MerchantID
 	 */
 	public String getMerchantID() {
 		return MerchantID;
 	}
 	/**
-	 * 閮剖�erchantID ���摨楊���(�蝬����)
+	 * 設定MerchantID 合作特店編號(由綠界提供)
 	 * @param merchantID
 	 */
 	public void setMerchantID(String merchantID) {
 		MerchantID = merchantID;
 	}
 	/**
-	 * ���erchantTradeNo ���摨漱��楊���(����摨���)嚗府鈭斗�楊����銴�
+	 * 取得MerchantTradeNo 合作特店交易編號(由合作特店提供)，該交易編號不可重複
 	 * @return MerchantTradeNo
 	 */
 	public String getMerchantTradeNo() {
 		return MerchantTradeNo;
 	}
 	/**
-	 * 閮剖�erchantTradeNo ���摨漱��楊���(����摨���)嚗府鈭斗�楊����銴�
+	 * 設定MerchantTradeNo 合作特店交易編號(由合作特店提供)，該交易編號不可重複
 	 * @param merchantTradeNo
 	 */
 	public void setMerchantTradeNo(String merchantTradeNo) {
 		MerchantTradeNo = merchantTradeNo;
 	}
 	/**
-	 * ���erchantTradeDate ���摨漱�����
+	 * 取得MerchantTradeDate 合作特店交易時間
 	 * @return MerchantTradeDate
 	 */
 	public String getMerchantTradeDate() {
 		return MerchantTradeDate;
 	}
 	/**
-	 * 閮剖�erchantTradeDate ���摨漱������誑 yyyy/MM/dd HH:mm:ss�撘葆�
+	 * 設定MerchantTradeDate 合作特店交易時間，請以 yyyy/MM/dd HH:mm:ss格式帶入
 	 * @param merchantTradeDate
 	 */
 	public void setMerchantTradeDate(String merchantTradeDate) {
 		MerchantTradeDate = merchantTradeDate;
 	}
 	/**
-	 * ���aymentType 鈭斗����
+	 * 取得PaymentType 交易類型
 	 * @return PaymentType
 	 */
 	public String getPaymentType() {
 		return PaymentType;
 	}
 	/**
-	 * 閮剖�aymentType 鈭斗����
+	 * 設定PaymentType 交易類型
 	 * @param paymentType
 	 */
 //	public void setPaymentType(String paymentType) {
 //		PaymentType = paymentType;
 //	}
 	/**
-	 * ���otalAmount 鈭斗�憿�
+	 * 取得TotalAmount 交易金額
 	 * @return TotalAmount
 	 */
 	public String getTotalAmount() {
 		return TotalAmount;
 	}
 	/**
-	 * 閮剖�otalAmount 鈭斗�憿�
+	 * 設定TotalAmount 交易金額
 	 * @param totalAmount
 	 */
 	public void setTotalAmount(String totalAmount) {
 		TotalAmount = totalAmount;
 	}
 	/**
-	 * ���radeDesc 鈭斗��膩
+	 * 取得TradeDesc 交易描述
 	 * @return TradeDesc
 	 */
 	public String getTradeDesc() {
 		return TradeDesc;
 	}
 	/**
-	 * 閮剖�radeDesc 鈭斗��膩
+	 * 設定TradeDesc 交易描述
 	 * @param tradeDesc
 	 */
 	public void setTradeDesc(String tradeDesc) {
 		TradeDesc = tradeDesc;
 	}
 	/**
-	 * ���temName ����迂
+	 * 取得ItemName 商品名稱
 	 * @return ItemName
 	 */
 	public String getItemName() {
 		return ItemName;
 	}
 	/**
-	 * 閮剖�temName ����迂
+	 * 設定ItemName 商品名稱
 	 * @param itemName
 	 */
 	public void setItemName(String itemName) {
 		ItemName = itemName;
 	}
 	/**
-	 * ���eturnURL 隞狡摰���蝬脣�
+	 * 取得ReturnURL 付款完成通知回傳網址
 	 * @return ReturnURL
 	 */
 	public String getReturnURL() {
 		return ReturnURL;
 	}
 	/**
-	 * 閮剖�eturnURL 隞狡摰���蝬脣�
+	 * 設定ReturnURL 付款完成通知回傳網址
 	 * @param returnURL
 	 */
 	public void setReturnURL(String returnURL) {
 		ReturnURL = returnURL;
 	}
 	/**
-	 * ���hoosePayment ����身隞狡�撘�
+	 * 取得ChoosePayment 選擇預設付款方式
 	 * @return ChoosePayment
 	 */
 	public String getChoosePayment() {
 		return ChoosePayment;
 	}
 	/**
-	 * 閮剖�hoosePayment ����身隞狡�撘�
+	 * 設定ChoosePayment 選擇預設付款方式
 	 * @param choosePayment
 	 */
 //	public void setChoosePayment(String choosePayment) {
 //		ChoosePayment = choosePayment;
 //	}
 	/**
-	 * ���lientBackURL Client蝡航����摨頂蝯梁����蝯�
+	 * 取得ClientBackURL Client端返回合作特店系統的按鈕連結
 	 * @return ClientBackURL
 	 */
 	public String getClientBackURL() {
 		return ClientBackURL;
 	}
 	/**
-	 * 閮剖�lientBackURL Client蝡航����摨頂蝯梁����蝯�
+	 * 設定ClientBackURL Client端返回合作特店系統的按鈕連結
 	 * @param clientBackURL
 	 */
 	public void setClientBackURL(String clientBackURL) {
 		ClientBackURL = clientBackURL;
 	}
 	/**
-	 * ���temURL ����蝬脣�
+	 * 取得ItemURL 商品銷售網址
 	 * @return ItemURL
 	 */
 	public String getItemURL() {
 		return ItemURL;
 	}
 	/**
-	 * 閮剖�� ItemURL ����蝬脣�
+	 * 設定 ItemURL 商品銷售網址
 	 * @param itemURL
 	 */
 	public void setItemURL(String itemURL) {
 		ItemURL = itemURL;
 	}
 	/**
-	 * ���emark �閮餅���
+	 * 取得Remark 備註欄位
 	 * @return Remark
 	 */
 	public String getRemark() {
 		return Remark;
 	}
 	/**
-	 * 閮剖�emark �閮餅���
+	 * 設定Remark 備註欄位
 	 * @param remark
 	 */
 	public void setRemark(String remark) {
 		Remark = remark;
 	}
 	/**
-	 * ���hooseSubPayment ����身隞狡摮�
+	 * 取得ChooseSubPayment 選擇預設付款子項目
 	 * @return ChooseSubPayment
 	 */
 	public String getChooseSubPayment() {
 		return ChooseSubPayment;
 	}
 	/**
-	 * 閮剖�hooseSubPayment ����身隞狡摮�
+	 * 設定ChooseSubPayment 選擇預設付款子項目
 	 * @param chooseSubPayment
 	 */
 	public void setChooseSubPayment(String chooseSubPayment) {
 		ChooseSubPayment = chooseSubPayment;
 	}
 	/**
-	 * ���rderResultURL Client蝡臬�隞狡蝯�雯��
+	 * 取得OrderResultURL Client端回傳付款結果網址
 	 * @return OrderResultURL
 	 */
 	public String getOrderResultURL() {
 		return OrderResultURL;
 	}
 	/**
-	 * 閮剖�rderResultURL Client蝡臬�隞狡蝯�雯��
+	 * 設定OrderResultURL Client端回傳付款結果網址
 	 * @param orderResultURL
 	 */
 	public void setOrderResultURL(String orderResultURL) {
 		OrderResultURL = orderResultURL;
 	}
 	/**
-	 * ���eedExtraPaidInfo ����閬����狡鞈�� 
+	 * 取得NeedExtraPaidInfo 是否需要額外的付款資訊 
 	 * @return NeedExtraPaidInfo
 	 */
 	public String getNeedExtraPaidInfo() {
 		return NeedExtraPaidInfo;
 	}
 	/**
-	 * 閮剖�eedExtraPaidInfo ����閬����狡鞈�� 
+	 * 設定NeedExtraPaidInfo 是否需要額外的付款資訊 
 	 * @param needExtraPaidInfo
 	 */
 	public void setNeedExtraPaidInfo(String needExtraPaidInfo) {
 		NeedExtraPaidInfo = needExtraPaidInfo;
 	}
 	/**
-	 * ���eviceSource 鋆蔭靘��
+	 * 取得DeviceSource 裝置來源
 	 * @return DeviceSource
 	 */
 	public String getDeviceSource() {
 		return DeviceSource;
 	}
 	/**
-	 * 閮剖�eviceSource 鋆蔭靘��
+	 * 設定DeviceSource 裝置來源
 	 * @param deviceSource
 	 */
 	public void setDeviceSource(String deviceSource) {
 		DeviceSource = deviceSource;
 	}
 	/**
-	 * ���gnorePayment ����狡�撘�
+	 * 取得IgnorePayment 隱藏付款方式
 	 * @return IgnorePayment
 	 */
 	public String getIgnorePayment() {
 		return IgnorePayment;
 	}
 	/**
-	 * 閮剖�gnorePayment ����狡�撘�
+	 * 設定IgnorePayment 隱藏付款方式
 	 * @param ignorePayment
 	 */
 	public void setIgnorePayment(String ignorePayment) {
 		IgnorePayment = ignorePayment;
 	}
 	/**
-	 * ���latformID �蝝��像���誨���(�蝬����)
+	 * 取得PlatformID 特約合作平台商代號(由綠界提供)
 	 * @return PlatformID
 	 */
 	public String getPlatformID() {
 		return PlatformID;
 	}
 	/**
-	 * 閮剖�latformID �蝝��像���誨���(�蝬����)
+	 * 設定PlatformID 特約合作平台商代號(由綠界提供)
 	 * @param platformID
 	 */
 	public void setPlatformID(String platformID) {
 		PlatformID = platformID;
 	}
 	/**
-	 * ���nvoiceMark �摮蟡券��酉閮�
+	 * 取得InvoiceMark 電子發票開立註記
 	 * @return InvoiceMark
 	 */
 	public String getInvoiceMark() {
 		return InvoiceMark;
 	}
 	/**
-	 * 閮剖�nvoiceMark �摮蟡券��酉閮�
+	 * 設定InvoiceMark 電子發票開立註記
 	 * @param invoiceMark
 	 */
 	public void setInvoiceMark(String invoiceMark) {
 		InvoiceMark = invoiceMark;
 	}
-	
 	/**
-	 * ���ncryptType CheckMacValue�撖���
+	 * 取得EncryptType CheckMacValue加密類型
 	 * @return EncryptType
 	 */
 	public String getEncryptType() {
 		return EncryptType;
 	}
 	/**
-	 * 閮剖�ncryptType CheckMacValue�撖���
+	 * 設定EncryptType CheckMacValue加密類型
 	 * @param encryptType
 	 */
 //	public void setEncryptType(String encryptType) {
 //		EncryptType = encryptType;
 //	}
 	/**
-	 * ���toreExpireDate 頞�像鞎餅甇Ｘ���
+	 * 取得StoreExpireDate 超商繳費截止時間
 	 * @return StoreExpireDate
 	 */
 	public String getStoreExpireDate() {
 		return StoreExpireDate;
 	}
 	/**
-	 * 閮剖�toreExpireDate 頞�像鞎餅甇Ｘ���
+	 * 設定StoreExpireDate 超商繳費截止時間
 	 * @param storeExpireDate
 	 */
 	public void setStoreExpireDate(String storeExpireDate) {
 		StoreExpireDate = storeExpireDate;
 	}
 	/**
-	 * ���esc_1 鈭斗��膩1
+	 * 取得Desc_1 交易描述1
 	 * @return Desc_1
 	 */
 	public String getDesc_1() {
 		return Desc_1;
 	}
 	/**
-	 * 閮剖�esc_1 鈭斗��膩1
+	 * 設定Desc_1 交易描述1
 	 * @param desc_1
 	 */
 	public void setDesc_1(String desc_1) {
 		Desc_1 = desc_1;
 	}
 	/**
-	 * ���esc_2 鈭斗��膩2
+	 * 取得Desc_2 交易描述2
 	 * @return Desc_2
 	 */
 	public String getDesc_2() {
 		return Desc_2;
 	}
 	/**
-	 * 閮剖�esc_2 鈭斗��膩2
+	 * 設定Desc_2 交易描述2
 	 * @param desc_2
 	 */
 	public void setDesc_2(String desc_2) {
 		Desc_2 = desc_2;
 	}
 	/**
-	 * ���esc_3 鈭斗��膩3
+	 * 取得Desc_3 交易描述3
 	 * @return Desc_3
 	 */
 	public String getDesc_3() {
 		return Desc_3;
 	}
 	/**
-	 * 閮剖�esc_3 鈭斗��膩3
+	 * 設定Desc_3 交易描述3
 	 * @param desc_3
 	 */
 	public void setDesc_3(String desc_3) {
 		Desc_3 = desc_3;
 	}
 	/**
-	 * ���esc_4 鈭斗��膩4
+	 * 取得Desc_4 交易描述4
 	 * @return Desc_4
 	 */
 	public String getDesc_4() {
 		return Desc_4;
 	}
 	/**
-	 * 閮剖�esc_4 鈭斗��膩4
+	 * 設定Desc_4 交易描述4
 	 * @param desc_4
 	 */
 	public void setDesc_4(String desc_4) {
 		Desc_4 = desc_4;
 	}
 	/**
-	 * ���aymentInfoURL Server蝡臬�隞狡������
+	 * 取得PaymentInfoURL Server端回傳付款相關資訊
 	 * @return PaymentInfoURL
 	 */
 	public String getPaymentInfoURL() {
 		return PaymentInfoURL;
 	}
 	/**
-	 * 閮剖�aymentInfoURL Server蝡臬�隞狡������
+	 * 設定PaymentInfoURL Server端回傳付款相關資訊
 	 * @param paymentInfoURL
 	 */
 	public void setPaymentInfoURL(String paymentInfoURL) {
 		PaymentInfoURL = paymentInfoURL;
 	}
 	/**
-	 * ���lientRedirectURL Client蝡臬�隞狡�撘�����
+	 * 取得ClientRedirectURL Client端回傳付款方式相關資訊
 	 * @return ClientRedirectURL
 	 */
 	public String getClientRedirectURL() {
 		return ClientRedirectURL;
 	}
 	/**
-	 * 閮剖�lientRedirectURL Client蝡臬�隞狡�撘�����
+	 * 設定ClientRedirectURL Client端回傳付款方式相關資訊
 	 * @param clientRedirectURL
 	 */
 	public void setClientRedirectURL(String clientRedirectURL) {
 		ClientRedirectURL = clientRedirectURL;
 	}
 	/**
-	 * ���toreID ���摨��誨蝣潘�����摨‵�摨振隞�蝣潔蝙�
+	 * 取得StoreID 合作特店商店代碼，提供合作特店填入店家代碼使用
 	 * @return StoreID
 	 */
 	public String getStoreID() {
 		return StoreID;
 	}
 	/**
-	 * 閮剖�toreID ���摨��誨蝣潘�����摨‵�摨振隞�蝣潔蝙�
+	 * 設定StoreID 合作特店商店代碼，提供合作特店填入店家代碼使用
 	 * @param storeID
 	 */
 	public void setStoreID(String storeID) {
 		StoreID = storeID;
 	}
 	/**
-	 * ���ustomField1 �閮�迂甈��1嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 取得CustomField1 自訂名稱欄位1，提供合作廠商使用記錄用客製化使用欄位
 	 * @return CustomField1
 	 */
 	public String getCustomField1() {
 		return CustomField1;
 	}
 	/**
-	 * 閮剖�ustomField1 �閮�迂甈��1嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 設定CustomField1 自訂名稱欄位1，提供合作廠商使用記錄用客製化使用欄位
 	 * @param customField1
 	 */
 	public void setCustomField1(String customField1) {
 		CustomField1 = customField1;
 	}
 	/**
-	 * ���ustomField2 �閮�迂甈��2嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 取得CustomField2 自訂名稱欄位2，提供合作廠商使用記錄用客製化使用欄位
 	 * @return CustomField2
 	 */
 	public String getCustomField2() {
 		return CustomField2;
 	}
 	/**
-	 * 閮剖�ustomField2 �閮�迂甈��2嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 設定CustomField2 自訂名稱欄位2，提供合作廠商使用記錄用客製化使用欄位
 	 * @param customField2
 	 */
 	public void setCustomField2(String customField2) {
 		CustomField2 = customField2;
 	}
 	/**
-	 * ���ustomField3 �閮�迂甈��3嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 取得CustomField3 自訂名稱欄位3，提供合作廠商使用記錄用客製化使用欄位
 	 * @return CustomField3
 	 */
 	public String getCustomField3() {
 		return CustomField3;
 	}
 	/**
-	 * 閮剖�ustomField3 �閮�迂甈��3嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 設定CustomField3 自訂名稱欄位3，提供合作廠商使用記錄用客製化使用欄位
 	 * @param customField3
 	 */
 	public void setCustomField3(String customField3) {
 		CustomField3 = customField3;
 	}
 	/**
-	 * ���ustomField4 �閮�迂甈��4嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 取得CustomField4 自訂名稱欄位4，提供合作廠商使用記錄用客製化使用欄位
 	 * @return CustomField4
 	 */
 	public String getCustomField4() {
 		return CustomField4;
 	}
 	/**
-	 * 閮剖�ustomField4 �閮�迂甈��4嚗������蝙�閮�摰Ｚˊ��蝙�甈��
+	 * 設定CustomField4 自訂名稱欄位4，提供合作廠商使用記錄用客製化使用欄位
 	 * @param customField4
 	 */
 	public void setCustomField4(String customField4) {
@@ -659,7 +657,7 @@ public class AioCheckOutBARCODE {
 				+ ", ChoosePayment=" + ChoosePayment + ", ClientBackURL=" + ClientBackURL + ", ItemURL=" + ItemURL
 				+ ", Remark=" + Remark + ", ChooseSubPayment=" + ChooseSubPayment + ", OrderResultURL=" + OrderResultURL
 				+ ", NeedExtraPaidInfo=" + NeedExtraPaidInfo + ", DeviceSource=" + DeviceSource + ", IgnorePayment="
-				+ IgnorePayment + ", PlatformID=" + PlatformID + ", InvoiceMark=" + InvoiceMark +  ", EncryptType=" + EncryptType + ", StoreExpireDate=" + StoreExpireDate + ", Desc_1="
+				+ IgnorePayment + ", PlatformID=" + PlatformID + ", InvoiceMark=" + InvoiceMark + ", EncryptType=" + EncryptType + ", StoreExpireDate=" + StoreExpireDate + ", Desc_1="
 				+ Desc_1 + ", Desc_2=" + Desc_2 + ", Desc_3=" + Desc_3 + ", Desc_4=" + Desc_4 + ", PaymentInfoURL="
 				+ PaymentInfoURL + ", ClientRedirectURL=" + ClientRedirectURL + ", StoreID=" + StoreID
 				+ ", CustomField1=" + CustomField1 + ", CustomField2=" + CustomField2 + ", CustomField3=" + CustomField3

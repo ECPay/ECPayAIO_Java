@@ -38,13 +38,13 @@ public class ExampleAllInOne {
 //		System.out.println("fundingReconDetail: " + postFundingReconDetail());
 //		System.out.println("aioCheckOutALL: " + genAioCheckOutALL());
 //		System.out.println("aioCheckOutATM: " + genAioCheckOutATM());
-//		System.out.println("aioCheckOutCVS: " + genAioCheckOutCVS());
+		System.out.println("aioCheckOutCVS: " + genAioCheckOutCVS());
 //		System.out.println("aioCheckOutBARCODE: " + genAioCheckOutBARCODE());
 //		System.out.println("aioCheckOutDevide: " + genAioCheckOutDevide());
 //		System.out.println("aioCheckOutOneTime: " + genAioCheckOutOneTime());
-//		//System.out.println("aioCheckOutGooglePay: " + genAioCheckOutGooglePay());
+//		System.out.println("aioCheckOutGooglePay: " + genAioCheckOutGooglePay());
 //		System.out.println("aioCheckOutPeriod: " + genAioCheckOutPeriod());
-		System.out.println("aioCheckOutWebATM: " + genAioCheckOutWebATM());
+//		System.out.println("aioCheckOutWebATM: " + genAioCheckOutWebATM());
 	}
 	private static void initial(){
 		all = new AllInOne("");
@@ -64,8 +64,8 @@ public class ExampleAllInOne {
 		obj.setTotalAmount("1000");
 		obj.setCurrencyCode("TWD");
 		try {
-			obj.setItemName(new String("���".getBytes("BIG5"), "UTF-8"));
-			obj.setTradeDesc(new String("���".getBytes("BIG5"), "UTF-8"));
+			obj.setItemName(new String("哈".getBytes("BIG5"), "UTF-8"));
+			obj.setTradeDesc(new String("哈".getBytes("BIG5"), "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -131,61 +131,39 @@ public class ExampleAllInOne {
 	
 	public static String genAioCheckOutWebATM(){
 		AioCheckOutWebATM obj = new AioCheckOutWebATM();
-		InvoiceObj invoice = new InvoiceObj();
-		obj.setMerchantTradeNo("w13e66ik");
-		obj.setMerchantTradeDate("2017/01/01 08:05:23");
-		obj.setTotalAmount("50");
+		obj.setMerchantTradeNo("testCompany000444");
+		obj.setMerchantTradeDate("2017/01/01 08:05:08");
+		obj.setTotalAmount("100");
 		obj.setTradeDesc("test Description");
-		obj.setItemName("TestItem");
+		obj.setItemName("Test Item");
 		obj.setReturnURL("http://211.23.128.214:5000");
-		obj.setNeedExtraPaidInfo("Y");
-		obj.setInvoiceMark("Y");
-		invoice.setRelateNumber("1056534");
-		invoice.setCustomerID("123456");
-		invoice.setCarruerType("1");
-		invoice.setTaxType("1");
-		invoice.setCarruerNum("");
-		invoice.setDonation("1");
-		invoice.setLoveCode("123456");
-		invoice.setPrint("0");
-		invoice.setCustomerName("Mark");
-		invoice.setCustomerAddr("TTT");
-		invoice.setCustomerPhone("0911429215");
-		invoice.setDelayDay("0");
-		invoice.setInvType("07");
-		invoice.setInvoiceItemName("TTT");
-		invoice.setInvoiceItemCount("1");
-		invoice.setInvoiceItemWord("TTT");
-		invoice.setInvoiceItemPrice("50");
-		invoice.setInvoiceItemTaxType("1");
-		String form = all.aioCheckOut(obj, invoice);
+		obj.setNeedExtraPaidInfo("N");
+		String form = all.aioCheckOut(obj, null);
 		return form;
 	}
 	
 	public static String genAioCheckOutALL(){
 		AioCheckOutALL obj = new AioCheckOutALL();
-		obj.setMerchantTradeNo("testw123qad");
-		obj.setMerchantTradeDate("2018/08/23 15:05:08");
+		obj.setMerchantTradeNo("testCompany0004");
+		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		 
 		String form = all.aioCheckOut(obj, null);
 		return form;
 	}
 	
 	public static String genAioCheckOutATM(){
 		AioCheckOutATM obj = new AioCheckOutATM();
-		obj.setMerchantTradeNo("20356tf");
+		obj.setMerchantTradeNo("testCompany0005");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		 
 		obj.setExpireDate("6");
 		String form = all.aioCheckOut(obj, null);
 		return form;
@@ -193,14 +171,13 @@ public class ExampleAllInOne {
 	
 	public static String genAioCheckOutBARCODE(){
 		AioCheckOutBARCODE obj = new AioCheckOutBARCODE();
-		obj.setMerchantTradeNo("testCompany00w7");
+		obj.setMerchantTradeNo("testCompany0007");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		 
 		obj.setStoreExpireDate("3");
 		String form = all.aioCheckOut(obj, null);
 		return form;
@@ -209,7 +186,7 @@ public class ExampleAllInOne {
 	public static String genAioCheckOutCVS(){
 		AioCheckOutCVS obj = new AioCheckOutCVS();
 		InvoiceObj invoice = new InvoiceObj();
-		obj.setMerchantTradeNo("wh1jwereik");
+		obj.setMerchantTradeNo("testCompany1217");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
@@ -218,22 +195,22 @@ public class ExampleAllInOne {
 		obj.setNeedExtraPaidInfo("N");
 		obj.setStoreExpireDate("3");
 		obj.setInvoiceMark("Y");
-		invoice.setRelateNumber("123034");
+		invoice.setRelateNumber("test201217test");
 		invoice.setCustomerID("123456");
 		invoice.setCarruerType("1");
 		invoice.setTaxType("1");
 		invoice.setCarruerNum("");
-		invoice.setDonation("1");
-		invoice.setLoveCode("123456");
+		invoice.setDonation("2");
+		invoice.setLoveCode("X123456");
 		invoice.setPrint("0");
 		invoice.setCustomerName("Mark");
-		invoice.setCustomerAddr("TTT");
+		invoice.setCustomerAddr("台北市南港區三重路");
 		invoice.setCustomerPhone("0911429215");
 		invoice.setDelayDay("1");
 		invoice.setInvType("07");
-		invoice.setInvoiceItemName("TTT");
+		invoice.setInvoiceItemName("測試");
 		invoice.setInvoiceItemCount("1");
-		invoice.setInvoiceItemWord("TTT");
+		invoice.setInvoiceItemWord("個");
 		invoice.setInvoiceItemPrice("50");
 		invoice.setInvoiceItemTaxType("1");
 		String form = all.aioCheckOut(obj, invoice);
@@ -242,14 +219,13 @@ public class ExampleAllInOne {
 	
 	public static String genAioCheckOutDevide(){
 		AioCheckOutDevide obj = new AioCheckOutDevide();
-		obj.setMerchantTradeNo("testCosdassds");
+		obj.setMerchantTradeNo("testCompany0007");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		 
 		obj.setCreditInstallment("3,6");
 		obj.setInstallmentAmount("10");
 		String form = all.aioCheckOut(obj, null);
@@ -258,43 +234,40 @@ public class ExampleAllInOne {
 	
 	public static String genAioCheckOutOneTime(){
 		AioCheckOutOneTime obj = new AioCheckOutOneTime();
-		obj.setMerchantTradeNo("testCompasny08");
+		obj.setMerchantTradeNo("testCompany0008");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		 
 		obj.setRedeem("Y");
 		String form = all.aioCheckOut(obj, null);
 		return form;
 	}
 	
-	/*public static String genAioCheckOutGooglePay(){
+/*	public static String genAioCheckOutGooglePay(){
 		AioCheckOutGooglePay obj = new AioCheckOutGooglePay();
 		obj.setMerchantTradeNo("testCompany0028");
-		obj.setMerchantTradeDate("2018/08/23 18:05:23");
+		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		 
 		String form = all.aioCheckOut(obj, null);
 		return form;
 	}*/
 	
 	public static String genAioCheckOutPeriod(){
 		AioCheckOutPeriod obj = new AioCheckOutPeriod();
-		obj.setMerchantTradeNo("testCompan0019");
+		obj.setMerchantTradeNo("testCompany0009");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		 
 		obj.setPeriodAmount("50");
 		obj.setPeriodType("D");
 		obj.setFrequency("1");
