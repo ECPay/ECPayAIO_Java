@@ -2,6 +2,7 @@ package example;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Hashtable;
+import java.util.UUID;
 
 import ecpay.payment.integration.AllInOne;
 import ecpay.payment.integration.domain.AioCheckOutALL;
@@ -10,7 +11,6 @@ import ecpay.payment.integration.domain.AioCheckOutBARCODE;
 import ecpay.payment.integration.domain.AioCheckOutCVS;
 import ecpay.payment.integration.domain.AioCheckOutDevide;
 import ecpay.payment.integration.domain.AioCheckOutOneTime;
-//import ecpay.payment.integration.domain.AioCheckOutGooglePay;
 import ecpay.payment.integration.domain.AioCheckOutPeriod;
 import ecpay.payment.integration.domain.AioCheckOutWebATM;
 import ecpay.payment.integration.domain.CaptureObj;
@@ -42,7 +42,6 @@ public class ExampleAllInOne {
 //		System.out.println("aioCheckOutBARCODE: " + genAioCheckOutBARCODE());
 //		System.out.println("aioCheckOutDevide: " + genAioCheckOutDevide());
 //		System.out.println("aioCheckOutOneTime: " + genAioCheckOutOneTime());
-//		System.out.println("aioCheckOutGooglePay: " + genAioCheckOutGooglePay());
 //		System.out.println("aioCheckOutPeriod: " + genAioCheckOutPeriod());
 //		System.out.println("aioCheckOutWebATM: " + genAioCheckOutWebATM());
 	}
@@ -186,7 +185,8 @@ public class ExampleAllInOne {
 	public static String genAioCheckOutCVS(){
 		AioCheckOutCVS obj = new AioCheckOutCVS();
 		InvoiceObj invoice = new InvoiceObj();
-		obj.setMerchantTradeNo("testCompany1217");
+		UUID uid = UUID.randomUUID();
+		obj.setMerchantTradeNo(uid.toString().replaceAll("-", "").substring(0, 20));
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
@@ -245,19 +245,6 @@ public class ExampleAllInOne {
 		String form = all.aioCheckOut(obj, null);
 		return form;
 	}
-	
-/*	public static String genAioCheckOutGooglePay(){
-		AioCheckOutGooglePay obj = new AioCheckOutGooglePay();
-		obj.setMerchantTradeNo("testCompany0028");
-		obj.setMerchantTradeDate("2017/01/01 08:05:23");
-		obj.setTotalAmount("50");
-		obj.setTradeDesc("test Description");
-		obj.setItemName("TestItem");
-		obj.setReturnURL("http://211.23.128.214:5000");
-		obj.setNeedExtraPaidInfo("N");
-		String form = all.aioCheckOut(obj, null);
-		return form;
-	}*/
 	
 	public static String genAioCheckOutPeriod(){
 		AioCheckOutPeriod obj = new AioCheckOutPeriod();

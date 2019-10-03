@@ -22,8 +22,7 @@
         <Method>WebATM</Method>
         <Method>ATM</Method>
         <Method>CVS</Method>
-        <Method>BARCODE</Method>
-        <Method>GooglePay</Method>-->
+        <Method>BARCODE</Method>-->
     </IgnorePayment>
 
 </Conf>

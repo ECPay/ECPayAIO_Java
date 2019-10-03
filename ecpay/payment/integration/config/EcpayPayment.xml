@@ -169,7 +169,7 @@
                 <pattern>^.{0,200}$</pattern>
             </param>
         </condparam>
-        <option>GooglePay</option>
+        <!--<option>GooglePay</option> 2019/09/30暫時關閉GooglePay-->
       </param>
       <param  type="String"  require="0" name="ClientBackURL">
         <pattern>^.{0,200}$</pattern>

@@ -20,7 +20,6 @@ import ecpay.payment.integration.domain.AioCheckOutBARCODE;
 import ecpay.payment.integration.domain.AioCheckOutCVS;
 import ecpay.payment.integration.domain.AioCheckOutDevide;
 import ecpay.payment.integration.domain.AioCheckOutOneTime;
-//import ecpay.payment.integration.domain.AioCheckOutGooglePay;
 import ecpay.payment.integration.domain.AioCheckOutPeriod;
 import ecpay.payment.integration.domain.AioCheckOutWebATM;
 import ecpay.payment.integration.domain.CVSOrBARCODERequestObj;
@@ -462,17 +461,7 @@ public class AllInOne extends AllInOneBase{
 			}
 			((AioCheckOutOneTime) obj).setInvoiceMark(invoice == null? "N" : "Y");
 			log.info("aioCheckOutOneTime params: " + ((AioCheckOutOneTime) obj).toString());
-		}/* else if(obj instanceof AioCheckOutGooglePay){
-			((AioCheckOutGooglePay) obj).setPlatformID(PlatformID);
-			if(!PlatformID.isEmpty() && ((AioCheckOutGooglePay) obj).getMerchantID().isEmpty()){
-				((AioCheckOutGooglePay) obj).setMerchantID(MerchantID);
-			} else if(!PlatformID.isEmpty() && !((AioCheckOutGooglePay) obj).getMerchantID().isEmpty()){
-			} else {
-				((AioCheckOutGooglePay) obj).setMerchantID(MerchantID);
-			}
-			((AioCheckOutGooglePay) obj).setInvoiceMark(invoice == null? "N" : "Y");
-			log.info("aioCheckOutGooglePay params: " + ((AioCheckOutGooglePay) obj).toString());
-		}*/ else if(obj instanceof AioCheckOutPeriod){
+		} else if(obj instanceof AioCheckOutPeriod){
 			((AioCheckOutPeriod) obj).setPlatformID(PlatformID);
 			if(!PlatformID.isEmpty() && ((AioCheckOutPeriod) obj).getMerchantID().isEmpty()){
 				((AioCheckOutPeriod) obj).setMerchantID(MerchantID);
