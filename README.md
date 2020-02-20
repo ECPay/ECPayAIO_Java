@@ -1,29 +1,29 @@
-# ��� �����(All In One)���y����Java��
+# 綠界 全方位(All In One)金流介接Java版
 ---
 
-## 1. ����
+## 1. 介紹
 
-  - ��ɹ�󦳦��ڻݨD���|���A���ѧ��㪺�������API�A�æ��h�ئ��ڤ覡(All In One)�i��ܨϥΡC ���M��Java���A�i�ϥΧ@�إ߭q��A�����I�ڳq���A�d�߭q�浥���y��������ΡC
-  - ���ڤ覡�M��G
-    - �H�Υd(�@���I�M�B�����I�ڡB�w���w�B)
-    - ����ATM
-    - ATM�d����
-    - �W�ӥN�X
+  - 綠界對於有收款需求的會員，提供完整的交易介接API，並有多種收款方式(All In One)可選擇使用。 本套件為Java版，可使用作建立訂單，接受付款通知，查詢訂單等金流交易的應用。
+  - 收款方式清單：
+    - 信用卡(一次付清、分期付款、定期定額)
+    - 網路ATM
+    - ATM櫃員機
+    - 超商代碼
     - Apple Pay
-    - Google Pay (���S�O�ӽФ~��ϥ�)(��Android Pay)
+    - Google Pay (須特別申請才能使用)(原Android Pay)
 
 
-## 2. �w������
-  - _jdk 1.6�H�W_
-  - SDK���󭭨�b���A���W�ϥΡA�Y�T�ϥΩ������ҡA�w�קK�Ӯa���_��T�~�y
+## 2. 安裝環境
+  - _jdk 1.6以上_
+  - SDK元件限制在伺服器上使用，嚴禁使用於手機環境，已避免商家金鑰資訊外流
  
 
-## 3. �ϥαо�
-  - �ϥΪ̤���m��Doc��Ƨ����A�i�ѰѾ\
+## 3. 使用教學
+  - 使用者文件放置於Doc資料夾內，可供參閱
 
 
-## 4. �p���ڭ�
-  - ��ɧ޳N�ȪA�H�c: techsupport@ecpay.com.tw
+## 4. 聯絡我們
+  - 綠界技術服務工程師信箱: techsupport@ecpay.com.tw
 
 
 
