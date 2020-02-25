@@ -60,7 +60,7 @@
                 <option>0</option>
             </param>
             <param type="String"  require="0" name="MerchantMemberID">
-                <pattern>^.{0,20}$</pattern>
+                <pattern>^.{0,30}$</pattern>
             </param>
             <param type="Opt"  require="0" name="Redeem" category="OneTime">
                 <option>Y</option>
