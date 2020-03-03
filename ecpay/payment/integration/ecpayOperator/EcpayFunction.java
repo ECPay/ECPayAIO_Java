@@ -209,8 +209,8 @@ public class EcpayFunction {
 			URL obj = new URL(url);
 			HttpURLConnection connection = null;
 			if (obj.getProtocol().toLowerCase().equals("https")) {
-				trustAllHosts();
 				connection = (HttpsURLConnection) obj.openConnection();
+				trustAllHosts((HttpsURLConnection) connection);
 			}
 			else {
 				connection = (HttpURLConnection) obj.openConnection();
@@ -261,10 +261,10 @@ public class EcpayFunction {
 	}
 	
 	/**
-	 * https 處理
+	 * 信任所有憑證.
+	 * @param connection
 	 */
-	private static void trustAllHosts() {
-		
+	private static void trustAllHosts(HttpsURLConnection connection) {
 	    X509TrustManager easyTrustManager = new X509TrustManager() {
 	    	
 	        public void checkClientTrusted(
@@ -294,13 +294,12 @@ public class EcpayFunction {
 	        
 	        sc.init(null, trustAllCerts, new java.security.SecureRandom());
 	        
-	        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+	        connection.setSSLSocketFactory(sc.getSocketFactory());
 	        
 	    } 
 	    catch (Exception e) {
 	    	e.printStackTrace();
 	    }
-	    
 	}
 	
 	/**
