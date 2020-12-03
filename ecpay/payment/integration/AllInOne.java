@@ -23,7 +23,6 @@ import ecpay.payment.integration.domain.AioCheckOutOneTime;
 import ecpay.payment.integration.domain.AioCheckOutPeriod;
 import ecpay.payment.integration.domain.AioCheckOutWebATM;
 import ecpay.payment.integration.domain.CVSOrBARCODERequestObj;
-import ecpay.payment.integration.domain.CaptureObj;
 import ecpay.payment.integration.domain.CreateServerOrderObj;
 import ecpay.payment.integration.domain.DoActionObj;
 import ecpay.payment.integration.domain.FundingReconDetailObj;
@@ -36,7 +35,6 @@ import ecpay.payment.integration.ecpayOperator.EcpayFunction;
 import ecpay.payment.integration.errorMsg.ErrorMessage;
 import ecpay.payment.integration.exception.EcpayException;
 import ecpay.payment.integration.verification.VerifyAioCheckOut;
-import ecpay.payment.integration.verification.VerifyCapture;
 import ecpay.payment.integration.verification.VerifyCreateServerOrder;
 import ecpay.payment.integration.verification.VerifyDoAction;
 import ecpay.payment.integration.verification.VerifyFundingReconDetail;
@@ -126,39 +124,6 @@ public class AllInOne extends AllInOneBase{
 		} catch(Exception e){
 			log.error(e.getMessage());
 			throw new EcpayException(e.getMessage());
-		}
-		return result;
-	}
-	
-	/**
-	 * 會員申請撥款/退款的方法
-	 * @param captureObj
-	 * @return response string
-	 */
-	public String capture(CaptureObj captureObj){
-		captureObj.setPlatformID(PlatformID);
-		if(!PlatformID.isEmpty() && captureObj.getMerchantID().isEmpty()){
-			captureObj.setMerchantID(MerchantID);
-		} else if(!PlatformID.isEmpty() && !captureObj.getMerchantID().isEmpty()){
-		} else {
-			captureObj.setMerchantID(MerchantID);
-		}
-		log.info("capture params: " + captureObj.toString());
-		String result = "";
-		String CheckMacValue = "";
-		try {
-			VerifyCapture verify = new VerifyCapture();
-			captureUrl = verify.getAPIUrl(operatingMode);
-			verify.verifyParams(captureObj);
-			CheckMacValue = EcpayFunction.genCheckMacValue(HashKey, HashIV, captureObj);
-			log.info("capture generate CheckMacValue: " + CheckMacValue);
-			String httpValue = EcpayFunction.genHttpValue(captureObj, CheckMacValue);
-			log.info("capture post String: " + httpValue);
-			result = EcpayFunction.httpPost(captureUrl, httpValue, "UTF-8");
-		} catch (EcpayException e2) {
-			e2.ShowExceptionMessage();
-			log.error(e2.getNewExceptionMessage());
-			throw new EcpayException(e2.getNewExceptionMessage());
 		}
 		return result;
 	}

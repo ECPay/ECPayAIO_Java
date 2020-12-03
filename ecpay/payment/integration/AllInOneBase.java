@@ -23,7 +23,6 @@ public class AllInOneBase {
 	protected static String doActionUrl;
 	protected static String queryCreditTradeUrl;
 	protected static String queryTradeInfoUrl;
-	protected static String captureUrl;
 	protected static String queryTradeUrl;
 	protected static String tradeNoAioUrl;
 	protected static String fundingReconDetailUrl;

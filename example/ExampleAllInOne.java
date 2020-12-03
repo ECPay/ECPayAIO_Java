@@ -13,7 +13,6 @@ import ecpay.payment.integration.domain.AioCheckOutDevide;
 import ecpay.payment.integration.domain.AioCheckOutOneTime;
 import ecpay.payment.integration.domain.AioCheckOutPeriod;
 import ecpay.payment.integration.domain.AioCheckOutWebATM;
-import ecpay.payment.integration.domain.CaptureObj;
 import ecpay.payment.integration.domain.CreateServerOrderObj;
 import ecpay.payment.integration.domain.DoActionObj;
 import ecpay.payment.integration.domain.FundingReconDetailObj;
@@ -32,7 +31,6 @@ public class ExampleAllInOne {
 //		System.out.println("doAction: " + postDoAction());
 //		System.out.println("queryTradeInfo: " + postQueryTradeInfo());
 //		System.out.println("queryCreditCardPeriodInfo: " + postQueryCreditCardPeriodInfo());
-//		System.out.println("capture: " + postCapture());
 //		System.out.println("queryTrade: " + postQueryTrade());
 //		System.out.println("tradeNoAio: " + postTradeNoAio());
 //		System.out.println("fundingReconDetail: " + postFundingReconDetail());
@@ -90,13 +88,6 @@ public class ExampleAllInOne {
 		obj.setStartDate("2017-03-03");
 		obj.setEndDate("2017-03-03");
 		return all.fundingReconDetail(obj);
-	}
-	
-	public static String postCapture(){
-		CaptureObj obj = new CaptureObj();
-		obj.setMerchantTradeNo("testCompany0003");
-		obj.setCaptureAMT("100");
-		return all.capture(obj);
 	}
 	
 	public static String postQueryTrade(){
@@ -195,12 +186,12 @@ public class ExampleAllInOne {
 		obj.setNeedExtraPaidInfo("N");
 		obj.setStoreExpireDate("3");
 		obj.setInvoiceMark("Y");
-		invoice.setRelateNumber("test201217test");
+		invoice.setRelateNumber("test202017test");
 		invoice.setCustomerID("123456");
 		invoice.setCarruerType("1");
 		invoice.setTaxType("1");
 		invoice.setCarruerNum("");
-		invoice.setDonation("2");
+		invoice.setDonation("0");
 		invoice.setLoveCode("X123456");
 		invoice.setPrint("0");
 		invoice.setCustomerName("Mark");
