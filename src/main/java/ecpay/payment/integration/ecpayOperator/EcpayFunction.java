@@ -60,7 +60,9 @@ public class EcpayFunction {
 			for(String name: fieldNames){
 				if(name != "CheckMacValue" && name != "PaymentToken"){
 					Method method = cls.getMethod("get"+name, null);
-					data = data + '&' + name + '=' + method.invoke(obj).toString();
+					if(method.invoke(obj)!=null){
+						data = data + '&' + name + '=' + method.invoke(obj).toString();
+					}
 				}
 			}
 			String urlEncode = urlEncode("HashKey=" + key + data + "&HashIV=" + iv).toLowerCase();
