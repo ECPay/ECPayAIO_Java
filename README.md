@@ -2,7 +2,6 @@
 ---
 
 ## 1. 介紹
-
   - 綠界對於有收款需求的會員，提供完整的交易介接API，並有多種收款方式(All In One)可選擇使用。 本套件為Java版，可使用作建立訂單，接受付款通知，查詢訂單等金流交易的應用。
   - 收款方式清單：
     - 信用卡(一次付清、分期付款、定期定額)
@@ -20,12 +19,31 @@
 
 ## 3. 使用教學
   - 使用者文件放置於Doc資料夾內，可供參閱
+  - 範例放在example資料夾，可供參閱
+  - JavaDoc 在建置完成後將出現在target資料夾 (ECPayAIO_Java-<version>-javadoc.jar)，解除壓縮後並打開index.html，就會有完整的JavaDoc (Parameters, Examples WIP)
 
 
-## 4. 聯絡我們
+## 4. Maven 使用
+目前並未放在任何Maven Repository，必須自行建置，其指令如下，這將會建置並安裝到你的Local Maven Repository (~/.m2/repository) (照理來說能夠在Windows, MacOS和Linux運作，但是需要安裝Git和Maven):
+```shell
+git clone https://github.com/ECPay/ECPayAIO_Java.git
+cd ECPayAIO_Java
+mvn clean package install
+```
+使用方法: <br>
+```xml
+<dependencies>
+    <dependency>
+        <groupId>tw.com.ecpay</groupId>
+        <artifactId>ECPayAIO_Java</artifactId>
+        <version>版本 (請見pom.xml)</version>
+        <scope>compile</scope>
+<!--        可以改成其他的Scope，這裡只是範例-->
+    </dependency>
+</dependencies>
+```
+
+
+## 5. 聯絡我們
   - 綠界技術服務工程師信箱: techsupport@ecpay.com.tw
-
-
-
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+  

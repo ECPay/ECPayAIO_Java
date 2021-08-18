@@ -71,8 +71,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * 檢查Hashtable中的檢查碼是否正確(確保資料未被竄改)
-	 * @param Hashtable params
-	 * @return boolean 
 	 */
 	public boolean compareCheckMacValue(Hashtable<String, String> params){
 		String checkMacValue = "";
@@ -93,8 +91,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * Apple Pay信用卡授權作業
-	 * @param CreateServerOrderobj
-	 * @return
 	 */
 	public String createServerOrder(CreateServerOrderObj obj){
 		obj.setPlatformID(PlatformID);
@@ -130,8 +126,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * 下載信用卡撥款對帳資料檔的方法
-	 * @param fundingReconDetailObj
-	 * @return response string
 	 */
 	public String fundingReconDetail(FundingReconDetailObj fundingReconDetailObj){
 		fundingReconDetailObj.setMerchantID(MerchantID);
@@ -185,8 +179,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * 查詢信用卡單筆明細記錄的方法
-	 * @param queryTradeObj
-	 * @return response string
 	 */
 	public String queryTrade(QueryTradeObj queryTradeObj){
 		queryTradeObj.setMerchantID(MerchantID);
@@ -212,8 +204,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * 下載會員對帳媒體檔的方法
-	 * @param tradeNoAioObj
-	 * @return response string
 	 */
 	public String tradeNoAio(TradeNoAioObj tradeNoAioObj){
 		tradeNoAioObj.setMerchantID(MerchantID);
@@ -260,8 +250,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * 信用卡關帳/退刷/取消/放棄的方法
-	 * @param doActionObj
-	 * @return response string
 	 */
 	public String doAction(DoActionObj doActionObj){
 		doActionObj.setPlatformID(PlatformID);
@@ -292,8 +280,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * 查詢訂單資料的方法
-	 * @param queryTradeInfoObj
-	 * @return response string
 	 */
 	public String queryTradeInfo(QueryTradeInfoObj queryTradeInfoObj){
 		queryTradeInfoObj.setPlatformID(PlatformID);
@@ -325,7 +311,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * 信用卡定期定額訂單查詢
-	 * @param queryCreditCardPeriodInfoObj
 	 * @return response JSON string
 	 */
 	public String queryCreditCardPeriodInfo(QueryCreditCardPeriodInfoObj queryCreditCardPeriodInfoObj) {
@@ -353,9 +338,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * 產生訂單Html form的方法
-	 * @param aioCheckOutObj
-	 * @param invoice
-	 * @param String
 	 */
 	public String aioCheckOut(Object obj, InvoiceObj invoice){
 		StringBuilder out = new StringBuilder();
@@ -475,8 +457,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * ATM、CVS或BARCODE的取號結果通知方法。接收傳送至PaymentInfoURL的資料。回傳物件分為ATMRequestObj, CVSOrBARCODERequestObj二種，請用適當的物件承接以免出錯
-	 * @param req
-	 * @return obj
 	 */
 	public Object aioCheckOutFeedback(HttpServletRequest req){
 		List<String> parameterNames = new ArrayList<String>(req.getParameterMap().keySet());
@@ -523,9 +503,6 @@ public class AllInOne extends AllInOneBase{
 	
 	/**
 	 * 產生HTML code
-	 * @param aio object
-	 * @param invoice obj
-	 * @return string
 	 */
 	private String genCheckOutHtmlCode(Object aio, InvoiceObj invoice){
 		StringBuilder builder = new StringBuilder();
