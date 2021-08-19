@@ -136,8 +136,8 @@ public class VerifyAioCheckOut extends PaymentVerifyBase {
 		else if(obj.getInvoiceItemTaxType().isEmpty())
 			throw new EcpayException("InvoiceItemTaxType cannot be empty.");
 		// 商品名稱含有管線 => 認為是多樣商品 *InvoiceItemName， *InvoiceItemCount ，*InvoiceItemWord， *InvoiceItemPrice InvoiceItemTaxType逐一用管線分割，計算數量後與第一個比對
-		if(obj.getInvoiceItemName().contains("|")){
-			int itemCount = obj.getInvoiceItemName().split("|").length;
+		if(obj.getInvoiceItemName().contains("\\|")){
+			int itemCount = obj.getInvoiceItemName().split("\\|").length;
 			int paramCount = 0;
 			Pattern r = Pattern.compile("(\\|\\||^\\||\\|$)");
 			Matcher invCount = r.matcher(obj.getInvoiceItemCount());
@@ -147,33 +147,33 @@ public class VerifyAioCheckOut extends PaymentVerifyBase {
 			if(invCount.find()){
 				throw new EcpayException("InvoiceItemCount contains empty value.");
 			} else{
-				paramCount = obj.getInvoiceItemCount().split("|").length;
+				paramCount = obj.getInvoiceItemCount().split("\\|").length;
 				if(itemCount != paramCount)
 					throw new EcpayException("Count of item info InvoiceItemCount(" + paramCount + ") not match item count from InvoiceItemName(" + itemCount + ")");
 			}
 			if(invWord.find()){
 				throw new EcpayException("InvoiceItemWord contains empty value.");
 			} else{
-				paramCount = obj.getInvoiceItemWord().split("|").length;
+				paramCount = obj.getInvoiceItemWord().split("\\|").length;
 				if(itemCount != paramCount)
 					throw new EcpayException("Count of item info InvoiceItemWord(" + paramCount + ") not match item count from InvoiceItemName(" + itemCount + ")");
 			}
 			if(invPrice.find()){
 				throw new EcpayException("InvoiceItemPrice contains empty value.");
 			} else{
-				paramCount = obj.getInvoiceItemPrice().split("|").length;
+				paramCount = obj.getInvoiceItemPrice().split("\\|").length;
 				if(itemCount != paramCount)
 					throw new EcpayException("Count of item info InvoiceItemPrice(" + paramCount + ") not match item count from InvoiceItemName(" + itemCount + ")");
 			}
 			if(invType.find()){
 				throw new EcpayException("InvoiceItemTaxType contains empty value.");
 			} else{
-				paramCount = obj.getInvoiceItemTaxType().split("|").length;
+				paramCount = obj.getInvoiceItemTaxType().split("\\|").length;
 				if(itemCount != paramCount)
 					throw new EcpayException("Count of item info InvoiceItemTaxType(" + paramCount + ") not match item count from InvoiceItemName(" + itemCount + ")");
 			}
 			// 課稅類別[TaxType] = 9 時 => InvoiceItemTaxType 能含有1,2 3(and at least contains one 1 and other)
-			String[] itemTax = obj.getInvoiceItemTaxType().split("|");
+			String[] itemTax = obj.getInvoiceItemTaxType().split("\\|");
 			for(String tax : itemTax){
 				if(tax.equals("1") || tax.equals("2") || tax.equals("3"))
 					continue;
@@ -188,13 +188,13 @@ public class VerifyAioCheckOut extends PaymentVerifyBase {
 			}
 		} else{
 			// 沒有管線 => 逐一檢查後4項有無管線
-			if(obj.getInvoiceItemCount().contains("|"))
+			if(obj.getInvoiceItemCount().contains("\\|"))
 				throw new EcpayException("Item info InvoiceItemCount contains pipeline delimiter but there's only one item in param InvoiceItemName.");
-			else if(obj.getInvoiceItemWord().contains("|"))
+			else if(obj.getInvoiceItemWord().contains("\\|"))
 				throw new EcpayException("Item info InvoiceItemWord contains pipeline delimiter but there's only one item in param InvoiceItemName.");
-			else if(obj.getInvoiceItemPrice().contains("|"))
+			else if(obj.getInvoiceItemPrice().contains("\\|"))
 				throw new EcpayException("Item info InvoiceItemPrice contains pipeline delimiter but there's only one item in param InvoiceItemName.");
-			else if(obj.getInvoiceItemTaxType().contains("|"))
+			else if(obj.getInvoiceItemTaxType().contains("\\|"))
 				throw new EcpayException("Item info InvoiceItemTaxType contains pipeline delimiter but there's only one item in param InvoiceItemName.");
 		}
 		// 4 比對所有欄位Pattern

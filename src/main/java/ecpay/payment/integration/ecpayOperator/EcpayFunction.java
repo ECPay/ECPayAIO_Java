@@ -51,10 +51,6 @@ public class EcpayFunction {
 		
 	/**
 	 * 產生檢查碼
-	 * @param key
-	 * @param iv
-	 * @param obj
-	 * @return
 	 */
 	public final static String genCheckMacValue(String key, String iv, Object obj){
 		Class<?> cls = obj.getClass();
@@ -64,7 +60,9 @@ public class EcpayFunction {
 			for(String name: fieldNames){
 				if(name != "CheckMacValue" && name != "PaymentToken"){
 					Method method = cls.getMethod("get"+name, null);
-					data = data + '&' + name + '=' + method.invoke(obj).toString();
+					if(method.invoke(obj)!=null){
+						data = data + '&' + name + '=' + method.invoke(obj).toString();
+					}
 				}
 			}
 			String urlEncode = urlEncode("HashKey=" + key + data + "&HashIV=" + iv).toLowerCase();
@@ -77,11 +75,6 @@ public class EcpayFunction {
 	
 	/**
 	 * AES加密
-	 * @param HashKey
-	 * @param HashIV
-	 * @param plaintext
-	 * @return
-	 * @throws Exception
 	 */
 	public final static String AESEncode(String HashKey, String HashIV, String plaintext) throws Exception{
 		SecretKey key = new SecretKeySpec(HashKey.getBytes("UTF-8"), "AES");
@@ -125,10 +118,6 @@ public class EcpayFunction {
 	
 	/**
 	 * 產生檢查碼
-	 * @param key
-	 * @param iv
-	 * @param Hashtable<String, String> params
-	 * @return
 	 */
 	public final static String genCheckMacValue(String key, String iv, Hashtable<String, String> params){
 		Set<String> keySet = params.keySet();
@@ -148,9 +137,6 @@ public class EcpayFunction {
 	
 	/**
 	 * 將物件的屬性與檢查碼組合成http的參數資料格式
-	 * @param obj
-	 * @param CheckMacValue
-	 * @return string
 	 */
 	public final static String genHttpValue(Object obj, String CheckMacValue){
 		Class<?> cls = obj.getClass();
@@ -171,8 +157,6 @@ public class EcpayFunction {
 	
 	/**
 	 * 將物件轉為Hashtable
-	 * @param obj
-	 * @return Hashtable
 	 */
 	public final static Hashtable<String, String>objToHashtable(Object obj){
 		Class<?> cls = obj.getClass();
@@ -200,9 +184,6 @@ public class EcpayFunction {
 	
 	/**
 	 * client http post的功能
-	 * @param url
-	 * @param urlParameters
-	 * @return response string
 	 */
 	public final static String httpPost(String url, String urlParameters, String encoding){
 		try{
@@ -239,7 +220,6 @@ public class EcpayFunction {
 	
 	/**
 	 * 產生 Unix TimeStamp
-	 * @return TimeStamp
 	 */
 	public final static String genUnixTimeStamp(){
 		Date date = new Date();
@@ -262,7 +242,6 @@ public class EcpayFunction {
 	
 	/**
 	 * 信任所有憑證.
-	 * @param connection
 	 */
 	private static void trustAllHosts(HttpsURLConnection connection) {
 	    X509TrustManager easyTrustManager = new X509TrustManager() {
@@ -304,8 +283,6 @@ public class EcpayFunction {
 	
 	/**
 	 * 針對物件內屬性的參數作排序
-	 * @param Class
-	 * @return List
 	 */
 	private static List<String> getSortedFieldNames(Class<?> cls){
 		Field[] fields = cls.getDeclaredFields();
@@ -319,8 +296,6 @@ public class EcpayFunction {
 	
 	/**
 	 * 將資料做 urlEncode編碼
-	 * @param data
-	 * @return url encoded string
 	 */
 	public static String urlEncode(String data){
 		String result = "";
@@ -334,8 +309,6 @@ public class EcpayFunction {
 	
 	/**
 	 * 將做完的urlEncode字串做轉換符合 .NET語言的轉換規則
-	 * @param url
-	 * @return .Net url encoded string
 	 */
 	private static String netUrlEncode(String url){
 		String netUrlEncode = url.replaceAll("%21", "\\!").replaceAll("%28", "\\(").replaceAll("%29", "\\)");
@@ -344,9 +317,6 @@ public class EcpayFunction {
 	
 	/**
 	 * 將 byte array 資料做 hash md5或 sha256 運算，並回傳 hex值的字串資料
-	 * @param data
-	 * @param isMD5
-	 * @return string
 	 */
 	private final static String hash(byte data[], String mode){
 		MessageDigest md = null;
@@ -364,8 +334,6 @@ public class EcpayFunction {
 	
 	/**
 	 * 將 byte array 資料轉換成 hex字串值
-	 * @param bytes
-	 * @return string
 	 */
 	private final static String bytesToHex(byte[] bytes) {
 	    char[] hexChars = new char[bytes.length * 2];
