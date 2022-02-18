@@ -1,5 +1,6 @@
 package ecpay.payment.integration;
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,9 +11,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.LoggerContext;
+
 import ecpay.payment.integration.domain.ATMRequestObj;
 import ecpay.payment.integration.domain.AioCheckOutALL;
 import ecpay.payment.integration.domain.AioCheckOutATM;
@@ -50,7 +53,7 @@ import ecpay.payment.integration.verification.VerifyTradeNoAio;
  */
 public class AllInOne extends AllInOneBase{
 	
-	private final static Logger log = Logger.getLogger(AllInOne.class.getName());
+	public static final Logger log = LogManager.getLogger(AllInOne.class);
 	
 	/**
 	 * AllInOne Constructor
@@ -60,12 +63,21 @@ public class AllInOne extends AllInOneBase{
 	public AllInOne(String log4jPropertiesPath){
 		super();
 		if(log4jPropertiesPath != "" && log4jPropertiesPath != null){
+			String propertiesFile = log4jPropertiesPath + "/log4j.xml";
+			
 			if(log4jPropertiesPath.substring(log4jPropertiesPath.length()-1) == "/")
-				PropertyConfigurator.configure(log4jPropertiesPath + "log4j.properties");
+				propertiesFile = propertiesFile + "log4j.properties";
 			else
-				PropertyConfigurator.configure(log4jPropertiesPath + "/log4j.properties");
-		} else{
-			Logger.getRootLogger().setLevel(Level.OFF);
+				propertiesFile = propertiesFile + "/log4j.properties";
+			
+			try {
+				LoggerContext logContext = (LoggerContext) LogManager.getContext(false);
+				File conFile = new File(propertiesFile);
+				logContext.setConfigLocation(conFile.toURI());
+				logContext.reconfigure();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
