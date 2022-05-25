@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import ecpay.payment.integration.AllInOne;
 import ecpay.payment.integration.domain.AioCheckOutALL;
+import ecpay.payment.integration.domain.AioCheckOutApplePay;
 import ecpay.payment.integration.domain.AioCheckOutATM;
 import ecpay.payment.integration.domain.AioCheckOutBARCODE;
 import ecpay.payment.integration.domain.AioCheckOutCVS;
@@ -35,8 +36,9 @@ public class ExampleAllInOne {
 //		System.out.println("tradeNoAio: " + postTradeNoAio());
 //		System.out.println("fundingReconDetail: " + postFundingReconDetail());
 //		System.out.println("aioCheckOutALL: " + genAioCheckOutALL());
+		System.out.println("aioCheckOutOneTime: " + genAioCheckOutApplePay());
 //		System.out.println("aioCheckOutATM: " + genAioCheckOutATM());
-		System.out.println("aioCheckOutCVS: " + genAioCheckOutCVS());
+//		System.out.println("aioCheckOutCVS: " + genAioCheckOutCVS());
 //		System.out.println("aioCheckOutBARCODE: " + genAioCheckOutBARCODE());
 //		System.out.println("aioCheckOutDevide: " + genAioCheckOutDevide());
 //		System.out.println("aioCheckOutOneTime: " + genAioCheckOutOneTime());
@@ -144,7 +146,18 @@ public class ExampleAllInOne {
 		String form = all.aioCheckOut(obj, null);
 		return form;
 	}
-	
+	public static String genAioCheckOutApplePay(){
+		AioCheckOutApplePay obj = new AioCheckOutApplePay();
+		obj.setMerchantTradeNo("testapplepay052302");
+		obj.setMerchantTradeDate("2017/01/01 08:05:23");
+		obj.setTotalAmount("50");
+		obj.setTradeDesc("test Description");
+		obj.setItemName("TestItem");
+		obj.setReturnURL("http://211.23.128.214:5000");
+		obj.setNeedExtraPaidInfo("N");
+		String form = all.aioCheckOut(obj, null);
+		return form;
+	}
 	public static String genAioCheckOutATM(){
 		AioCheckOutATM obj = new AioCheckOutATM();
 		obj.setMerchantTradeNo("testCompany0005");
@@ -210,15 +223,14 @@ public class ExampleAllInOne {
 	
 	public static String genAioCheckOutDevide(){
 		AioCheckOutDevide obj = new AioCheckOutDevide();
-		obj.setMerchantTradeNo("testCompany0007");
+		obj.setMerchantTradeNo("testorder2022052301");
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
-		obj.setTotalAmount("50");
+		obj.setTotalAmount("20000");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://211.23.128.214:5000");
 		obj.setNeedExtraPaidInfo("N");
-		obj.setCreditInstallment("3,6");
-		obj.setInstallmentAmount("10");
+		obj.setCreditInstallment("12");
 		String form = all.aioCheckOut(obj, null);
 		return form;
 	}

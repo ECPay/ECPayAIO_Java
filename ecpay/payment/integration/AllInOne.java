@@ -18,6 +18,7 @@ import org.apache.logging.log4j.core.LoggerContext;
 
 import ecpay.payment.integration.domain.ATMRequestObj;
 import ecpay.payment.integration.domain.AioCheckOutALL;
+import ecpay.payment.integration.domain.AioCheckOutApplePay;
 import ecpay.payment.integration.domain.AioCheckOutATM;
 import ecpay.payment.integration.domain.AioCheckOutBARCODE;
 import ecpay.payment.integration.domain.AioCheckOutCVS;
@@ -388,6 +389,16 @@ public class AllInOne extends AllInOneBase{
 				((AioCheckOutALL) obj).setIgnorePayment(ignoreParam);
 			}
 			log.info("aioCheckOutALL params: " + ((AioCheckOutALL) obj).toString());
+		} else if(obj instanceof AioCheckOutApplePay){
+			((AioCheckOutApplePay) obj).setPlatformID(PlatformID);
+			if(!PlatformID.isEmpty() && ((AioCheckOutApplePay) obj).getMerchantID().isEmpty()){
+				((AioCheckOutApplePay) obj).setMerchantID(MerchantID);
+			} else if(!PlatformID.isEmpty() && !((AioCheckOutApplePay) obj).getMerchantID().isEmpty()){
+			} else {
+				((AioCheckOutApplePay) obj).setMerchantID(MerchantID);
+			}
+			((AioCheckOutApplePay) obj).setInvoiceMark(invoice == null? "N" : "Y");
+			log.info("aioCheckOutOneTime params: " + ((AioCheckOutApplePay) obj).toString());
 		} else if(obj instanceof AioCheckOutATM){
 			((AioCheckOutATM) obj).setPlatformID(PlatformID);
 			if(!PlatformID.isEmpty() && ((AioCheckOutATM) obj).getMerchantID().isEmpty()){

@@ -134,12 +134,6 @@ public class AioCheckOutDevide {
 	private String CreditInstallment = "";
 	
 	/**
-	 * InstallmentAmount
-	 * 使用刷卡分期的總付款金額
-	 */
-	private String InstallmentAmount = "";
-	
-	/**
 	 * Language
 	 * 語系設定
 	 */
@@ -484,20 +478,6 @@ public class AioCheckOutDevide {
 		CreditInstallment = creditInstallment;
 	}
 	/**
-	 * 取得InstallmentAmount 使用刷卡分期的總付款金額
-	 * @return InstallmentAmount
-	 */
-	public String getInstallmentAmount() {
-		return InstallmentAmount;
-	}
-	/**
-	 * 設定InstallmentAmount 使用刷卡分期的總付款金額
-	 * @param installmentAmount
-	 */
-	public void setInstallmentAmount(String installmentAmount) {
-		InstallmentAmount = installmentAmount;
-	}
-	/**
 	 * 取得Language 語系設定
 	 * @return Language
 	 */
@@ -618,7 +598,7 @@ public class AioCheckOutDevide {
 				+ ", Remark=" + Remark + ", ChooseSubPayment=" + ChooseSubPayment + ", OrderResultURL=" + OrderResultURL
 				+ ", NeedExtraPaidInfo=" + NeedExtraPaidInfo + ", DeviceSource=" + DeviceSource + ", IgnorePayment="
 				+ IgnorePayment + ", PlatformID=" + PlatformID + ", InvoiceMark=" + InvoiceMark + ", EncryptType=" + EncryptType + ", CreditInstallment=" + CreditInstallment
-				+ ", InstallmentAmount=" + InstallmentAmount + ", Language=" + Language + ", StoreID=" + StoreID
+				+ ", Language=" + Language + ", StoreID=" + StoreID
 				+ ", CustomField1=" + CustomField1 + ", CustomField2=" + CustomField2 + ", CustomField3=" + CustomField3
 				+ ", CustomField4=" + CustomField4 + ", BidingCard=" + BidingCard + ", MerchantMemberID="
 				+ MerchantMemberID + "]";
