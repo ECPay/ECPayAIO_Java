@@ -9,7 +9,7 @@ public class FundingReconDetailObj {
 	
 	/**
 	 * MerchantID
-	 * 會員編號(由allPay提供)
+	 * 賣家會員編號
 	 */
 	private String MerchantID = "";
 	
@@ -34,14 +34,14 @@ public class FundingReconDetailObj {
 	/********************* getters and setters *********************/
 	
 	/**
-	 * 取得MerchantID 會員編號(由allPay提供)
+	 * 取得MerchantID 賣家會員編號
 	 * @return MerchantID
 	 */
 	public String getMerchantID() {
 		return MerchantID;
 	}
 	/**
-	 * 設定MerchantID 會員編號(由allPay提供)
+	 * 設定MerchantID 賣家會員編號
 	 * @param merchantID
 	 */
 	public void setMerchantID(String merchantID) {

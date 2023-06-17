@@ -224,7 +224,7 @@ public class AllInOne extends AllInOneBase{
 	}
 	
 	/**
-	 * 下載會員對帳媒體檔的方法
+	 * 下載賣家會員對帳媒體檔的方法
 	 * @param tradeNoAioObj
 	 * @return response string
 	 */
